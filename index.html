@@ -888,6 +888,56 @@
       .youtube-add-row { flex-direction: column; }
     }
 
+    /* ── GALLERY UPLOAD TIP ── */
+    .gallery-upload-tip {
+      max-width: 1100px;
+      margin: 0 auto 24px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 12px;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.65);
+      flex-wrap: wrap;
+    }
+    .gallery-upload-tip strong { color: var(--gold); }
+    .tip-btn {
+      margin-left: auto;
+      background: var(--rose);
+      color: white;
+      padding: 7px 18px;
+      border-radius: 20px;
+      font-size: 0.72rem;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.3s;
+    }
+    .tip-btn:hover { background: var(--rose-dark); }
+
+    /* ── VIDEO UPLOAD OPTIONS ── */
+    .video-upload-options {
+      max-width: 1100px;
+      margin: 32px auto 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .upload-option-card {
+      background: var(--cream);
+      border-radius: 16px;
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .upload-option-icon { font-size: 2rem; }
+    .upload-option-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--dark); }
+    .upload-option-desc { font-size: 0.82rem; color: var(--gray); line-height: 1.7; }
+    @media (max-width: 600px) { .video-upload-options { grid-template-columns: 1fr; } }
+
     /* ── TYPING ANIMATION ── */
     .typed-cursor { display: inline; color: var(--gold); animation: blink 1s step-end infinite; }
     @keyframes blink { 50% { opacity: 0; } }
@@ -1037,7 +1087,14 @@
       <h2 class="section-title" style="color:white;">The <em>Portfolio</em></h2>
       <div class="section-divider"></div>
     </div>
-    <div class="gallery-grid">
+    <div class="gallery-upload-tip" data-aos="fade-up">
+      <span>📸</span>
+      <span>Upload your photos to GitHub → <strong>assets/images/</strong> and they appear here automatically</span>
+      <a href="https://github.com/Peaceable0909/delight-beauty-empire/upload/main/assets/images" target="_blank" rel="noopener" class="tip-btn">Upload Photos</a>
+    </div>
+
+    <div class="gallery-grid" id="gallery-grid">
+      <!-- Photos load automatically from assets/images/ on GitHub -->
       <div class="gallery-item" data-aos="zoom-in" data-aos-delay="0">
         <div class="gallery-placeholder gp-1">Bridal Glam</div>
         <div class="gallery-overlay"><span class="gallery-overlay-icon">🔍</span></div>
@@ -1066,6 +1123,12 @@
     <p class="gallery-note" data-aos="fade-up">
       Follow us on <a href="https://www.instagram.com/delightbeautyempire" target="_blank" rel="noopener">Instagram @delightbeautyempire</a> for daily looks ✨
     </p>
+
+    <!-- Lightbox -->
+    <div id="lightbox" onclick="closeLightbox()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:9999;align-items:center;justify-content:center;flex-direction:column;gap:16px;">
+      <img id="lightbox-img" src="" alt="" style="max-width:92vw;max-height:85vh;border-radius:12px;object-fit:contain;" />
+      <button onclick="closeLightbox()" style="background:rgba(255,255,255,0.15);border:none;color:white;padding:10px 24px;border-radius:25px;font-size:0.85rem;cursor:pointer;">✕ Close</button>
+    </div>
   </section>
 
   <!-- VIDEOS -->
@@ -1104,29 +1167,23 @@
       </div>
     </div>
 
-    <!-- YouTube link adder -->
-    <div class="youtube-add" data-aos="fade-up">
-      <h3>📺 Add a YouTube Video</h3>
-      <div class="youtube-add-row">
-        <input type="url" id="yt-url-input" placeholder="Paste YouTube link e.g. https://www.youtube.com/watch?v=..." />
-        <input type="text" id="yt-title-input" placeholder="Video title (e.g. Bridal Glam)" style="max-width:220px" />
-        <button onclick="addYouTubeVideo()">Add Video</button>
+    <!-- Upload tips -->
+    <div class="video-upload-options" data-aos="fade-up">
+      <div class="upload-option-card">
+        <div class="upload-option-icon">🎬</div>
+        <div class="upload-option-title">Upload your own videos</div>
+        <div class="upload-option-desc">Upload MP4 files to your GitHub repo and they appear here automatically — no code needed.</div>
+        <a href="https://github.com/Peaceable0909/delight-beauty-empire/upload/main/assets/videos" target="_blank" rel="noopener" class="btn btn-rose" style="font-size:0.75rem;margin-top:auto">Upload Videos to GitHub</a>
       </div>
-    </div>
-
-    <!-- Local video upload -->
-    <div class="video-upload-wrap" data-aos="fade-up">
-      <div class="video-upload-area" onclick="document.getElementById('video-file-input').click()">
-        <div class="video-upload-icon">🎬</div>
-        <div class="video-upload-title">Upload Your Own Videos</div>
-        <div class="video-upload-desc">
-          Click to browse your device or drag &amp; drop MP4 files here.<br>
-          Videos will play directly on your website.
+      <div class="upload-option-card">
+        <div class="upload-option-icon">📺</div>
+        <div class="upload-option-title">Add a YouTube video</div>
+        <div class="upload-option-desc">Paste a YouTube link below to embed it directly on your website.</div>
+        <div style="display:flex;gap:8px;margin-top:auto;flex-wrap:wrap">
+          <input type="url" id="yt-url-input" placeholder="YouTube link..." style="flex:1;min-width:0;padding:10px 12px;border:1px solid #E0D0D8;border-radius:10px;font-size:0.8rem;font-family:'Poppins',sans-serif;outline:none" />
+          <button onclick="addYouTubeVideo()" class="btn btn-rose" style="font-size:0.75rem;white-space:nowrap">Add</button>
         </div>
-        <span class="btn btn-rose" style="display:inline-flex;pointer-events:none">Choose Videos</span>
       </div>
-      <input type="file" id="video-file-input" accept="video/*" multiple />
-      <div id="uploaded-videos-list"></div>
     </div>
   </section>
 
@@ -1326,23 +1383,80 @@
     }
     setTimeout(type, 1200);
 
+    // ── Auto-load photos & videos from GitHub repo
+    const REPO = 'Peaceable0909/delight-beauty-empire';
+
+    async function loadMediaFromGitHub() {
+      // Load photos into gallery
+      try {
+        const res = await fetch(`https://api.github.com/repos/${REPO}/contents/assets/images`);
+        if (res.ok) {
+          const files = await res.json();
+          const imgs = Array.isArray(files) ? files.filter(f => /\.(jpg|jpeg|png|gif|webp)$/i.test(f.name)) : [];
+          if (imgs.length > 0) {
+            const grid = document.getElementById('gallery-grid');
+            grid.innerHTML = imgs.map((f, i) => `
+              <div class="gallery-item" style="cursor:pointer" onclick="openLightbox('${f.download_url}','${f.name.replace(/'/g,"\\'")}')">
+                <img src="${f.download_url}" alt="${f.name}" loading="lazy"
+                  style="width:100%;height:100%;min-height:180px;object-fit:cover;border-radius:12px;display:block;" />
+                <div class="gallery-overlay"><span class="gallery-overlay-icon">🔍</span></div>
+              </div>`).join('');
+          }
+        }
+      } catch(e) {}
+
+      // Load videos
+      try {
+        const res = await fetch(`https://api.github.com/repos/${REPO}/contents/assets/videos`);
+        if (res.ok) {
+          const files = await res.json();
+          const vids = Array.isArray(files) ? files.filter(f => /\.(mp4|webm|mov)$/i.test(f.name)) : [];
+          if (vids.length > 0) {
+            const grid = document.getElementById('videos-grid');
+            grid.innerHTML = '';
+            vids.forEach(f => {
+              const title = f.name.replace(/\.[^.]+$/, '').replace(/[-_]/g, ' ');
+              const card = document.createElement('div');
+              card.className = 'video-card';
+              card.innerHTML = `
+                <div class="video-embed" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
+                  <video src="${f.download_url}" controls preload="metadata"
+                    style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;"></video>
+                </div>
+                <div class="video-info">
+                  <div class="video-title">${title}</div>
+                  <div class="video-date">Your video</div>
+                </div>`;
+              grid.appendChild(card);
+            });
+          }
+        }
+      } catch(e) {}
+    }
+    loadMediaFromGitHub();
+
+    // ── Lightbox
+    function openLightbox(src, name) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').style.display = 'none';
+      document.getElementById('lightbox-img').src = '';
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
     // ── YouTube video adder
     function addYouTubeVideo() {
       const urlInput = document.getElementById('yt-url-input');
-      const titleInput = document.getElementById('yt-title-input');
       const url = urlInput.value.trim();
-      const title = titleInput.value.trim() || 'Delight Beauty Video';
       if (!url) { alert('Please paste a YouTube link.'); return; }
-
-      let videoId = '';
       const match = url.match(/(?:v=|youtu\.be\/|embed\/)([a-zA-Z0-9_-]{11})/);
-      if (match) videoId = match[1];
-      else { alert('Could not find a valid YouTube video ID in that link.'); return; }
-
+      if (!match) { alert('Could not find a valid YouTube video ID in that link.'); return; }
+      const videoId = match[1];
       const grid = document.getElementById('videos-grid');
-      const placeholder = grid.querySelector('[data-placeholder]');
-      if (placeholder) placeholder.remove();
-
       const card = document.createElement('div');
       card.className = 'video-card';
       card.innerHTML = `
@@ -1350,60 +1464,12 @@
           <iframe src="https://www.youtube.com/embed/${videoId}" allowfullscreen loading="lazy"></iframe>
         </div>
         <div class="video-info">
-          <div class="video-title">${title}</div>
+          <div class="video-title">Delight Beauty Video</div>
           <div class="video-date">Added ${new Date().toLocaleDateString('en-GB',{month:'long',year:'numeric'})}</div>
         </div>`;
       grid.appendChild(card);
-
       urlInput.value = '';
-      titleInput.value = '';
     }
-
-    // ── Local video upload preview
-    document.getElementById('video-file-input').addEventListener('change', function() {
-      const list = document.getElementById('uploaded-videos-list');
-      Array.from(this.files).forEach(file => {
-        const url = URL.createObjectURL(file);
-        const size = (file.size / (1024 * 1024)).toFixed(1) + ' MB';
-        const item = document.createElement('div');
-        item.className = 'uploaded-video-item';
-        item.innerHTML = `
-          <div class="uploaded-video-thumb">
-            <video src="${url}" muted playsinline preload="metadata"></video>
-          </div>
-          <div>
-            <div class="uploaded-video-name">${file.name}</div>
-            <div class="uploaded-video-size">${size}</div>
-          </div>`;
-        list.appendChild(item);
-
-        // Also add to videos grid
-        const grid = document.getElementById('videos-grid');
-        const card = document.createElement('div');
-        card.className = 'video-card';
-        card.innerHTML = `
-          <div class="video-embed" style="padding-bottom:56.25%;position:relative">
-            <video src="${url}" controls style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;"></video>
-          </div>
-          <div class="video-info">
-            <div class="video-title">${file.name.replace(/\.[^.]+$/, '')}</div>
-            <div class="video-date">${size}</div>
-          </div>`;
-        grid.appendChild(card);
-      });
-    });
-
-    // ── Drag & drop on upload area
-    const uploadArea = document.querySelector('.video-upload-area');
-    uploadArea.addEventListener('dragover', e => { e.preventDefault(); uploadArea.style.borderColor = '#8B3A5F'; });
-    uploadArea.addEventListener('dragleave', () => { uploadArea.style.borderColor = 'var(--rose)'; });
-    uploadArea.addEventListener('drop', e => {
-      e.preventDefault();
-      uploadArea.style.borderColor = 'var(--rose)';
-      const fi = document.getElementById('video-file-input');
-      fi.files = e.dataTransfer.files;
-      fi.dispatchEvent(new Event('change'));
-    });
 
     // ── Contact form → Google Apps Script
     const APPS_SCRIPT_URL = 'YOUR_APPS_SCRIPT_URL_HERE'; // ← paste your deployed URL
