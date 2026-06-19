@@ -2,7 +2,10 @@
   "videos": [
     { "file": "vid1.mp4", "title": "Bridal Transformation" },
     { "file": "vid2.mp4", "title": "Hair Styling Tutorial" },
-    { "file": "vid3.mp4", "title": "Glam Makeup Look" }
+    { "file": "vid3.mp4", "title": "Glam Makeup Look" },
+    { "file": "vid4.mp4", "title": "Nail Art Tutorial" },
+    { "file": "vid5.mp4", "title": "Lash Extensions" },
+    { "file": "vid6.mp4", "title": "Skincare Routine" }
   ],
   "photos": [
     { "file": "photo1.jpg", "title": "Bridal Glam" },
@@ -10,6 +13,12 @@
     { "file": "photo3.jpg", "title": "Hair Styling" },
     { "file": "photo4.jpg", "title": "Lash Extensions" },
     { "file": "photo5.jpg", "title": "Nail Art" },
-    { "file": "photo6.jpg", "title": "Skincare Glow" }
+    { "file": "photo6.jpg", "title": "Skincare Glow" },
+    { "file": "photo7.jpg", "title": "Bridal Hair" },
+    { "file": "photo8.jpg", "title": "Glam Makeup" },
+    { "file": "photo9.jpg", "title": "Natural Look" },
+    { "file": "photo10.jpg", "title": "Party Glam" },
+    { "file": "photo11.jpg", "title": "Smokey Eyes" },
+    { "file": "photo12.jpg", "title": "Full Glam" }
   ]
 }
