@@ -505,112 +505,6 @@
     }
     .video-date { font-size: 0.75rem; color: var(--gray); }
 
-    /* Upload box */
-    .video-upload-wrap {
-      max-width: 1100px;
-      margin: 40px auto 0;
-    }
-    .video-upload-area {
-      border: 2px dashed var(--rose);
-      border-radius: 20px;
-      padding: 48px 32px;
-      text-align: center;
-      background: var(--rose-light);
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-    .video-upload-area:hover { border-color: var(--rose-dark); background: #F5D5E8; }
-    .video-upload-icon { font-size: 3rem; margin-bottom: 16px; }
-    .video-upload-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.3rem;
-      color: var(--dark);
-      margin-bottom: 8px;
-    }
-    .video-upload-desc {
-      font-size: 0.82rem;
-      color: var(--gray);
-      line-height: 1.7;
-      margin-bottom: 20px;
-    }
-    #video-file-input { display: none; }
-    #uploaded-videos-list {
-      margin-top: 24px;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 16px;
-    }
-    .uploaded-video-item {
-      background: var(--white);
-      border-radius: 12px;
-      padding: 16px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      box-shadow: 0 2px 12px rgba(45,27,46,0.06);
-    }
-    .uploaded-video-thumb {
-      width: 80px; height: 60px;
-      border-radius: 8px;
-      background: var(--dark);
-      flex-shrink: 0;
-      overflow: hidden;
-      position: relative;
-    }
-    .uploaded-video-thumb video {
-      width: 100%; height: 100%;
-      object-fit: cover;
-    }
-    .uploaded-video-name {
-      font-size: 0.82rem;
-      font-weight: 500;
-      color: var(--dark);
-      word-break: break-word;
-    }
-    .uploaded-video-size { font-size: 0.72rem; color: var(--gray); }
-
-    /* YouTube URL input */
-    .youtube-add {
-      max-width: 1100px;
-      margin: 24px auto 0;
-      background: var(--cream);
-      border-radius: 16px;
-      padding: 24px 28px;
-    }
-    .youtube-add h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1rem;
-      color: var(--dark);
-      margin-bottom: 12px;
-    }
-    .youtube-add-row {
-      display: flex;
-      gap: 12px;
-    }
-    .youtube-add-row input {
-      flex: 1;
-      padding: 12px 16px;
-      border: 1px solid #E0D0D8;
-      border-radius: 10px;
-      font-size: 0.85rem;
-      font-family: 'Poppins', sans-serif;
-      outline: none;
-      transition: border-color 0.3s;
-    }
-    .youtube-add-row input:focus { border-color: var(--rose); }
-    .youtube-add-row button {
-      background: var(--rose);
-      color: white;
-      border: none;
-      padding: 12px 24px;
-      border-radius: 10px;
-      font-size: 0.8rem;
-      font-weight: 500;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: background 0.3s;
-    }
-    .youtube-add-row button:hover { background: var(--rose-dark); }
 
     /* ── TESTIMONIALS ── */
     #testimonials { background: var(--cream); }
@@ -888,55 +782,6 @@
       .youtube-add-row { flex-direction: column; }
     }
 
-    /* ── GALLERY UPLOAD TIP ── */
-    .gallery-upload-tip {
-      max-width: 1100px;
-      margin: 0 auto 24px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 12px;
-      padding: 12px 20px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 0.82rem;
-      color: rgba(255,255,255,0.65);
-      flex-wrap: wrap;
-    }
-    .gallery-upload-tip strong { color: var(--gold); }
-    .tip-btn {
-      margin-left: auto;
-      background: var(--rose);
-      color: white;
-      padding: 7px 18px;
-      border-radius: 20px;
-      font-size: 0.72rem;
-      text-decoration: none;
-      white-space: nowrap;
-      transition: background 0.3s;
-    }
-    .tip-btn:hover { background: var(--rose-dark); }
-
-    /* ── VIDEO UPLOAD OPTIONS ── */
-    .video-upload-options {
-      max-width: 1100px;
-      margin: 32px auto 0;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-    .upload-option-card {
-      background: var(--cream);
-      border-radius: 16px;
-      padding: 28px 24px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .upload-option-icon { font-size: 2rem; }
-    .upload-option-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--dark); }
-    .upload-option-desc { font-size: 0.82rem; color: var(--gray); line-height: 1.7; }
-    @media (max-width: 600px) { .video-upload-options { grid-template-columns: 1fr; } }
 
     /* ── TYPING ANIMATION ── */
     .typed-cursor { display: inline; color: var(--gold); animation: blink 1s step-end infinite; }
@@ -1133,33 +978,7 @@
       <div class="section-divider"></div>
     </div>
 
-    <!-- Existing videos — paste your YouTube embed IDs below -->
-    <div class="videos-grid" id="videos-grid">
-      <!-- VIDEO CARD EXAMPLE — replace VIDEO_ID with your YouTube video ID -->
-      <!--
-      <div class="video-card">
-        <div class="video-embed">
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen loading="lazy"></iframe>
-        </div>
-        <div class="video-info">
-          <div class="video-title">Bridal Transformation</div>
-          <div class="video-date">June 2025</div>
-        </div>
-      </div>
-      -->
-      <div class="video-card" data-aos="fade-up" data-aos-delay="0">
-        <div class="video-embed">
-          <div class="video-embed-placeholder" style="font-size:1rem;flex-direction:column;gap:10px;color:rgba(255,255,255,0.6);font-size:0.8rem;letter-spacing:1px;text-transform:uppercase">
-            <span style="font-size:2rem">▶️</span>
-            Add your videos below
-          </div>
-        </div>
-        <div class="video-info">
-          <div class="video-title">Your first video</div>
-          <div class="video-date">Add via YouTube link or upload below</div>
-        </div>
-      </div>
-    </div>
+    <div class="videos-grid" id="videos-grid"></div>
 
   </section>
 
