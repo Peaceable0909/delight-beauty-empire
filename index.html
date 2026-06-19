@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Delight Beauty Empire – Where Beauty Meets Elegance</title>
+  <meta name="description" content="Professional beauty services – bridal makeup, hair styling, skincare, lashes, nails and more. Book your transformation today." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- AOS Scroll Animations -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+
+  <style>
+    :root {
+      --cream: #FFF8F5;
+      --rose: #B5547F;
+      --rose-light: #F9E0EC;
+      --rose-dark: #8B3A5F;
+      --gold: #C9A96E;
+      --gold-light: #F5ECD9;
+      --dark: #2D1B2E;
+      --dark-mid: #4A2040;
+      --gray: #6B6B6B;
+      --white: #FFFFFF;
+      --wa-green: #25D366;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--cream);
+      color: var(--dark);
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; display: block; }
+
+    /* ── NAVBAR ── */
+    #navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: transparent;
+      padding: 20px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.4s ease;
+    }
+    #navbar.scrolled {
+      background: rgba(255,255,255,0.97);
+      padding: 14px 5%;
+      box-shadow: 0 2px 20px rgba(45,27,46,0.08);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--white);
+      letter-spacing: 2px;
+      text-decoration: none;
+      transition: color 0.4s;
+    }
+    #navbar.scrolled .nav-logo { color: var(--rose); }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    #navbar.scrolled .nav-links a { color: var(--gray); }
+    .nav-links a:hover { color: var(--rose) !important; }
+
+    .nav-book-btn {
+      background: var(--rose);
+      color: white !important;
+      padding: 8px 20px;
+      border-radius: 25px;
+      font-size: 0.7rem !important;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .nav-book-btn:hover { background: var(--rose-dark); color: white !important; }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 5px;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      transition: all 0.3s;
+    }
+    #navbar.scrolled .hamburger span { background: var(--dark); }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      background: linear-gradient(160deg, #3B1040 0%, #1A0820 40%, #2D0A30 70%, #4A1535 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      padding: 120px 5% 80px;
+    }
+
+    .hero-bg-circles .circle {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.06;
+    }
+    .circle-1 { width: 600px; height: 600px; background: var(--rose); top: -200px; right: -100px; }
+    .circle-2 { width: 400px; height: 400px; background: var(--gold); bottom: -100px; left: -50px; }
+    .circle-3 { width: 200px; height: 200px; background: var(--rose); bottom: 100px; right: 10%; }
+
+    .hero-content { position: relative; z-index: 2; max-width: 700px; }
+
+    .hero-badge {
+      display: inline-block;
+      border: 1px solid rgba(201,169,110,0.4);
+      color: var(--gold);
+      font-size: 0.65rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      padding: 8px 20px;
+      border-radius: 25px;
+      margin-bottom: 28px;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 6vw, 4.2rem);
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 24px;
+    }
+    .hero-title em { color: var(--gold); font-style: italic; }
+
+    .hero-subtitle {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.8;
+      margin-bottom: 40px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 32px;
+      border-radius: 40px;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s;
+      border: none;
+    }
+    .btn-rose {
+      background: var(--rose);
+      color: white;
+    }
+    .btn-rose:hover { background: var(--rose-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(181,84,127,0.35); }
+
+    .btn-outline {
+      background: transparent;
+      color: white;
+      border: 1.5px solid rgba(255,255,255,0.35);
+    }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+
+    .btn-wa {
+      background: var(--wa-green);
+      color: white;
+    }
+    .btn-wa:hover { background: #1da851; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,211,102,0.3); }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.35);
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      z-index: 2;
+    }
+    .hero-scroll-line {
+      width: 1px;
+      height: 50px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
+      animation: scrollLine 2s ease-in-out infinite;
+    }
+    @keyframes scrollLine {
+      0%, 100% { opacity: 0.3; transform: scaleY(1); }
+      50% { opacity: 1; transform: scaleY(0.6); }
+    }
+
+    /* ── SECTIONS SHARED ── */
+    section { padding: 80px 5%; }
+
+    .section-header { text-align: center; margin-bottom: 56px; }
+    .section-label {
+      font-size: 0.65rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      color: var(--dark);
+      margin-bottom: 14px;
+      line-height: 1.3;
+    }
+    .section-title em { color: var(--rose); font-style: italic; }
+    .section-divider {
+      width: 50px;
+      height: 2px;
+      background: linear-gradient(to right, var(--rose), var(--gold));
+      margin: 0 auto;
+    }
+
+    /* ── ABOUT ── */
+    #about { background: var(--white); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .about-image-wrap {
+      position: relative;
+    }
+    .about-image-placeholder {
+      background: linear-gradient(135deg, #F9E0EC, #F5ECD9);
+      border-radius: 20px;
+      aspect-ratio: 4/5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      overflow: hidden;
+    }
+    .about-image-placeholder img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 20px;
+    }
+    .about-badge {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      background: var(--rose);
+      color: white;
+      padding: 16px 20px;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(181,84,127,0.3);
+    }
+    .about-badge .num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      display: block;
+      line-height: 1;
+    }
+    .about-badge .txt {
+      font-size: 0.65rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      opacity: 0.85;
+    }
+    .about-text .section-header { text-align: left; margin-bottom: 24px; }
+    .about-text .section-divider { margin: 0 0 24px; }
+    .about-text p {
+      color: var(--gray);
+      line-height: 1.9;
+      font-size: 0.9rem;
+      margin-bottom: 16px;
+    }
+    .about-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 24px 0;
+    }
+    .about-feature {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.8rem;
+      color: var(--dark);
+    }
+    .about-feature .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--rose);
+      flex-shrink: 0;
+    }
+
+    /* ── SERVICES ── */
+    #services { background: var(--cream); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .service-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 36px 28px;
+      transition: all 0.4s;
+      position: relative;
+      overflow: hidden;
+      cursor: default;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(to right, var(--rose), var(--gold));
+      transform: scaleX(0);
+      transition: transform 0.4s;
+    }
+    .service-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(45,27,46,0.1); }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-icon {
+      width: 60px; height: 60px;
+      border-radius: 16px;
+      background: var(--rose-light);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+    }
+    .service-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+    .service-desc {
+      font-size: 0.82rem;
+      color: var(--gray);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+    .service-price {
+      font-size: 0.75rem;
+      color: var(--gold);
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    /* ── GALLERY ── */
+    #gallery { background: var(--dark); }
+    #gallery .section-title { color: var(--white); }
+    #gallery .section-label { color: var(--gold); }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto;
+      gap: 12px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .gallery-item {
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+    .gallery-item:nth-child(1) { grid-row: span 2; }
+    .gallery-item:nth-child(5) { grid-column: span 2; }
+    .gallery-placeholder {
+      width: 100%;
+      aspect-ratio: 1;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.8);
+      font-weight: 500;
+      position: relative;
+    }
+    .gallery-item:nth-child(1) .gallery-placeholder { aspect-ratio: unset; height: 100%; min-height: 300px; }
+    .gallery-item:nth-child(5) .gallery-placeholder { aspect-ratio: unset; height: 200px; }
+    .gp-1 { background: linear-gradient(135deg, #C8789A, #E8A4C0); }
+    .gp-2 { background: linear-gradient(135deg, #C9A96E, #E8C98A); }
+    .gp-3 { background: linear-gradient(135deg, #9B5EA2, #C490CC); }
+    .gp-4 { background: linear-gradient(135deg, #B5547F, #D4789A); }
+    .gp-5 { background: linear-gradient(135deg, #3B1040, #7A3080); }
+    .gp-6 { background: linear-gradient(135deg, #E8A4C0, #F9D0DE); }
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(45,27,46,0);
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.3s;
+    }
+    .gallery-item:hover .gallery-overlay { background: rgba(45,27,46,0.4); }
+    .gallery-overlay-icon {
+      opacity: 0;
+      color: white;
+      font-size: 1.5rem;
+      transition: opacity 0.3s;
+    }
+    .gallery-item:hover .gallery-overlay-icon { opacity: 1; }
+    .gallery-note {
+      text-align: center;
+      margin-top: 24px;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.4);
+    }
+    .gallery-note a { color: var(--gold); text-decoration: none; }
+
+    /* ── VIDEOS ── */
+    #videos { background: var(--white); }
+    .videos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .video-card {
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--cream);
+      box-shadow: 0 4px 20px rgba(45,27,46,0.06);
+    }
+    .video-embed {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+    }
+    .video-embed iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+    .video-embed-placeholder {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(135deg, #2D1B2E, #4A2040);
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 2rem;
+      cursor: pointer;
+    }
+    .video-info {
+      padding: 16px 20px;
+    }
+    .video-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--dark);
+      margin-bottom: 4px;
+    }
+    .video-date { font-size: 0.75rem; color: var(--gray); }
+
+    /* Upload box */
+    .video-upload-wrap {
+      max-width: 1100px;
+      margin: 40px auto 0;
+    }
+    .video-upload-area {
+      border: 2px dashed var(--rose);
+      border-radius: 20px;
+      padding: 48px 32px;
+      text-align: center;
+      background: var(--rose-light);
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .video-upload-area:hover { border-color: var(--rose-dark); background: #F5D5E8; }
+    .video-upload-icon { font-size: 3rem; margin-bottom: 16px; }
+    .video-upload-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+    .video-upload-desc {
+      font-size: 0.82rem;
+      color: var(--gray);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    #video-file-input { display: none; }
+    #uploaded-videos-list {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .uploaded-video-item {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      box-shadow: 0 2px 12px rgba(45,27,46,0.06);
+    }
+    .uploaded-video-thumb {
+      width: 80px; height: 60px;
+      border-radius: 8px;
+      background: var(--dark);
+      flex-shrink: 0;
+      overflow: hidden;
+      position: relative;
+    }
+    .uploaded-video-thumb video {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+    .uploaded-video-name {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--dark);
+      word-break: break-word;
+    }
+    .uploaded-video-size { font-size: 0.72rem; color: var(--gray); }
+
+    /* YouTube URL input */
+    .youtube-add {
+      max-width: 1100px;
+      margin: 24px auto 0;
+      background: var(--cream);
+      border-radius: 16px;
+      padding: 24px 28px;
+    }
+    .youtube-add h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+    .youtube-add-row {
+      display: flex;
+      gap: 12px;
+    }
+    .youtube-add-row input {
+      flex: 1;
+      padding: 12px 16px;
+      border: 1px solid #E0D0D8;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-family: 'Poppins', sans-serif;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+    .youtube-add-row input:focus { border-color: var(--rose); }
+    .youtube-add-row button {
+      background: var(--rose);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 10px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.3s;
+    }
+    .youtube-add-row button:hover { background: var(--rose-dark); }
+
+    /* ── TESTIMONIALS ── */
+    #testimonials { background: var(--cream); }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .testimonial-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 32px 28px;
+      position: relative;
+    }
+    .testimonial-quote {
+      font-size: 3rem;
+      color: var(--rose-light);
+      font-family: 'Playfair Display', serif;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .testimonial-text {
+      font-size: 0.88rem;
+      color: var(--gray);
+      line-height: 1.8;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+    .testimonial-stars {
+      color: var(--gold);
+      font-size: 0.9rem;
+      margin-bottom: 14px;
+    }
+    .testimonial-author { display: flex; align-items: center; gap: 12px; }
+    .testimonial-avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 600;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+    .av-1 { background: #F9E0EC; color: var(--rose); }
+    .av-2 { background: #F5ECD9; color: var(--gold); }
+    .av-3 { background: #EAD5F5; color: #7A3080; }
+    .testimonial-name { font-size: 0.85rem; font-weight: 600; color: var(--dark); }
+    .testimonial-role { font-size: 0.72rem; color: var(--gray); }
+
+    /* ── CONTACT ── */
+    #contact {
+      background: linear-gradient(160deg, var(--dark-mid) 0%, var(--dark) 100%);
+      color: white;
+    }
+    #contact .section-title { color: white; }
+    #contact .section-divider { background: linear-gradient(to right, var(--rose), var(--gold)); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 60px;
+      max-width: 1100px;
+      margin: 0 auto;
+      align-items: start;
+    }
+    .contact-info h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      margin-bottom: 16px;
+      color: white;
+    }
+    .contact-info p {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.9;
+      margin-bottom: 30px;
+    }
+    .contact-items { display: flex; flex-direction: column; gap: 16px; }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .contact-item-icon {
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.07);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .contact-item-text .label {
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 2px;
+    }
+    .contact-item-text .value {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.85);
+    }
+    .contact-item-text a { color: rgba(255,255,255,0.85); text-decoration: none; }
+    .contact-item-text a:hover { color: var(--gold); }
+
+    .contact-form-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 24px;
+      padding: 36px 32px;
+    }
+    .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { margin-bottom: 16px; }
+    .form-group label {
+      display: block;
+      font-size: 0.72rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 8px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 10px;
+      padding: 13px 16px;
+      font-size: 0.85rem;
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: rgba(255,255,255,0.3); }
+    .form-group select option { background: var(--dark); color: white; }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--rose); }
+    .form-group textarea { resize: vertical; min-height: 110px; }
+    #form-status {
+      font-size: 0.82rem;
+      margin-top: 12px;
+      padding: 10px 16px;
+      border-radius: 10px;
+      display: none;
+    }
+    #form-status.success { background: rgba(37,211,102,0.15); color: #7EFFA3; display: block; }
+    #form-status.error { background: rgba(255,100,100,0.15); color: #FFB3B3; display: block; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #100610;
+      padding: 48px 5% 28px;
+      text-align: center;
+    }
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--gold);
+      letter-spacing: 3px;
+      margin-bottom: 16px;
+    }
+    .footer-tagline {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      list-style: none;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-socials {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+    .footer-social {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      font-size: 1rem;
+      transition: all 0.3s;
+    }
+    .footer-social:hover { background: var(--rose); color: white; }
+    .footer-copy {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.2);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 24px;
+    }
+
+    /* ── WHATSAPP FLOAT ── */
+    #wa-float {
+      position: fixed;
+      bottom: 32px;
+      right: 28px;
+      width: 58px; height: 58px;
+      background: var(--wa-green);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none;
+      color: white;
+      font-size: 1.6rem;
+      box-shadow: 0 6px 24px rgba(37,211,102,0.4);
+      z-index: 999;
+      transition: all 0.3s;
+      animation: waPulse 3s ease-in-out infinite;
+    }
+    #wa-float:hover { transform: scale(1.1); box-shadow: 0 10px 32px rgba(37,211,102,0.5); }
+    @keyframes waPulse {
+      0%, 100% { box-shadow: 0 6px 24px rgba(37,211,102,0.4); }
+      50% { box-shadow: 0 6px 40px rgba(37,211,102,0.6); }
+    }
+    .wa-tooltip {
+      position: absolute;
+      right: 66px;
+      white-space: nowrap;
+      background: white;
+      color: var(--dark);
+      font-size: 0.75rem;
+      padding: 8px 14px;
+      border-radius: 10px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+      opacity: 0;
+      transform: translateX(6px);
+      pointer-events: none;
+      transition: all 0.3s;
+    }
+    #wa-float:hover .wa-tooltip { opacity: 1; transform: translateX(0); }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: var(--dark);
+        align-items: center;
+        justify-content: center;
+        gap: 2.5rem;
+        z-index: 999;
+      }
+      .nav-links.open a { font-size: 1.2rem; color: white; }
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .about-image-wrap { order: -1; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-item:nth-child(1) { grid-row: unset; }
+      .gallery-item:nth-child(5) { grid-column: unset; }
+      .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      .form-row-2 { grid-template-columns: 1fr; }
+      .youtube-add-row { flex-direction: column; }
+    }
+
+    /* ── TYPING ANIMATION ── */
+    .typed-cursor { display: inline; color: var(--gold); animation: blink 1s step-end infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <a href="#" class="nav-logo">Delight Beauty Empire</a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#videos">Videos</a></li>
+      <li><a href="#contact" class="nav-book-btn">Book Now</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger" aria-label="Toggle menu" role="button" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero" aria-label="Hero">
+    <div class="hero-bg-circles" aria-hidden="true">
+      <div class="circle circle-1"></div>
+      <div class="circle circle-2"></div>
+      <div class="circle circle-3"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">✦ Delight Beauty Empire ✦</div>
+      <h1 class="hero-title">
+        Where Beauty Meets<br>
+        <em id="typed-text">Elegance &amp; Grace</em>
+      </h1>
+      <p class="hero-subtitle">
+        Professional beauty services crafted to make you look and feel your absolute best.
+        Bridal, editorial, everyday glam — your transformation starts here.
+      </p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn btn-rose">✨ Book a Session</a>
+        <a href="https://wa.me/2349033660736?text=Hello%20Delight%20Beauty%20Empire!%20I'd%20like%20to%20book%20a%20session." class="btn btn-wa" target="_blank" rel="noopener">
+          💬 Chat on WhatsApp
+        </a>
+        <a href="#gallery" class="btn btn-outline">View Our Work</a>
+      </div>
+    </div>
+    <div class="hero-scroll" aria-hidden="true">
+      <div class="hero-scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" aria-label="About us">
+    <div class="about-grid">
+      <div class="about-image-wrap" data-aos="fade-right">
+        <div class="about-image-placeholder">
+          <!-- Replace with your actual photo: <img src="assets/images/about.jpg" alt="Delight Beauty Empire Studio" /> -->
+          💄
+        </div>
+        <div class="about-badge">
+          <span class="num">5+</span>
+          <span class="txt">Years of<br>Excellence</span>
+        </div>
+      </div>
+      <div class="about-text" data-aos="fade-left" data-aos-delay="100">
+        <div class="section-header">
+          <span class="section-label">Our Story</span>
+          <h2 class="section-title">Passion for <em>Beauty</em></h2>
+          <div class="section-divider"></div>
+        </div>
+        <p>
+          Welcome to Delight Beauty Empire — where every client is royalty. We are a
+          premium beauty studio dedicated to bringing out your most radiant self through
+          expert techniques, quality products, and genuine care.
+        </p>
+        <p>
+          From intimate bridal preparations to bold editorial looks, our team of
+          skilled artists transforms your vision into reality. We believe beauty is
+          not one-size-fits-all — it's deeply personal, and we honour that.
+        </p>
+        <div class="about-features">
+          <div class="about-feature"><div class="dot"></div>Certified Beauty Artists</div>
+          <div class="about-feature"><div class="dot"></div>Premium Products Only</div>
+          <div class="about-feature"><div class="dot"></div>Bridal Specialists</div>
+          <div class="about-feature"><div class="dot"></div>Home Service Available</div>
+          <div class="about-feature"><div class="dot"></div>100% Client Satisfaction</div>
+          <div class="about-feature"><div class="dot"></div>Hygiene First Always</div>
+        </div>
+        <a href="#contact" class="btn btn-rose" style="margin-top: 10px;">Book a Session</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" aria-label="Services">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-label">What We Offer</span>
+      <h2 class="section-title">Our <em>Services</em></h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="services-grid">
+      <div class="service-card" data-aos="fade-up" data-aos-delay="0">
+        <div class="service-icon">💍</div>
+        <div class="service-name">Bridal Makeup</div>
+        <div class="service-desc">Look flawless on your special day. We offer full bridal glam, trial sessions, and touch-up kits.</div>
+        <div class="service-price">From ₦35,000</div>
+      </div>
+      <div class="service-card" data-aos="fade-up" data-aos-delay="80">
+        <div class="service-icon">✂️</div>
+        <div class="service-name">Hair Styling</div>
+        <div class="service-desc">From sleek and straight to full curls — we handle braids, weaves, wigs, and natural styles.</div>
+        <div class="service-price">From ₦15,000</div>
+      </div>
+      <div class="service-card" data-aos="fade-up" data-aos-delay="160">
+        <div class="service-icon">✨</div>
+        <div class="service-name">Glam Makeup</div>
+        <div class="service-desc">Everyday glam, events, photo shoots, and special occasions — bold or natural, we deliver.</div>
+        <div class="service-price">From ₦12,000</div>
+      </div>
+      <div class="service-card" data-aos="fade-up" data-aos-delay="0">
+        <div class="service-icon">💎</div>
+        <div class="service-name">Lash Extensions</div>
+        <div class="service-desc">Classic, hybrid, or volume lash sets that last and look naturally gorgeous.</div>
+        <div class="service-price">From ₦18,000</div>
+      </div>
+      <div class="service-card" data-aos="fade-up" data-aos-delay="80">
+        <div class="service-icon">💅</div>
+        <div class="service-name">Nail Art</div>
+        <div class="service-desc">Gel, acrylic, ombre, 3D art — your nails deserve the best design and finish.</div>
+        <div class="service-price">From ₦8,000</div>
+      </div>
+      <div class="service-card" data-aos="fade-up" data-aos-delay="160">
+        <div class="service-icon">🌿</div>
+        <div class="service-name">Skincare Facial</div>
+        <div class="service-desc">Deep cleanse, glow facials, and bespoke skincare treatments for your skin type.</div>
+        <div class="service-price">From ₦10,000</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery" aria-label="Portfolio gallery">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-label">Our Work</span>
+      <h2 class="section-title" style="color:white;">The <em>Portfolio</em></h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item" data-aos="zoom-in" data-aos-delay="0">
+        <div class="gallery-placeholder gp-1">Bridal Glam</div>
+        <div class="gallery-overlay"><span class="gallery-overlay-icon">🔍</span></div>
+      </div>
+      <div class="gallery-item" data-aos="zoom-in" data-aos-delay="60">
+        <div class="gallery-placeholder gp-2">Editorial</div>
+        <div class="gallery-overlay"><span class="gallery-overlay-icon">🔍</span></div>
+      </div>
+      <div class="gallery-item" data-aos="zoom-in" data-aos-delay="120">
+        <div class="gallery-placeholder gp-3">Hair</div>
+        <div class="gallery-overlay"><span class="gallery-overlay-icon">🔍</span></div>
+      </div>
+      <div class="gallery-item" data-aos="zoom-in" data-aos-delay="180">
+        <div class="gallery-placeholder gp-4">Lashes</div>
+        <div class="gallery-overlay"><span class="gallery-overlay-icon">🔍</span></div>
+      </div>
+      <div class="gallery-item" data-aos="zoom-in" data-aos-delay="240">
+        <div class="gallery-placeholder gp-5" style="height:200px">Nails &amp; More</div>
+        <div class="gallery-overlay"><span class="gallery-overlay-icon">🔍</span></div>
+      </div>
+      <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300">
+        <div class="gallery-placeholder gp-6">Skincare</div>
+        <div class="gallery-overlay"><span class="gallery-overlay-icon">🔍</span></div>
+      </div>
+    </div>
+    <p class="gallery-note" data-aos="fade-up">
+      Follow us on <a href="https://www.instagram.com/delightbeautyempire" target="_blank" rel="noopener">Instagram @delightbeautyempire</a> for daily looks ✨
+    </p>
+  </section>
+
+  <!-- VIDEOS -->
+  <section id="videos" aria-label="Video gallery">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-label">Watch Us Work</span>
+      <h2 class="section-title">Our <em>Videos</em></h2>
+      <div class="section-divider"></div>
+    </div>
+
+    <!-- Existing videos — paste your YouTube embed IDs below -->
+    <div class="videos-grid" id="videos-grid">
+      <!-- VIDEO CARD EXAMPLE — replace VIDEO_ID with your YouTube video ID -->
+      <!--
+      <div class="video-card">
+        <div class="video-embed">
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="video-info">
+          <div class="video-title">Bridal Transformation</div>
+          <div class="video-date">June 2025</div>
+        </div>
+      </div>
+      -->
+      <div class="video-card" data-aos="fade-up" data-aos-delay="0">
+        <div class="video-embed">
+          <div class="video-embed-placeholder" style="font-size:1rem;flex-direction:column;gap:10px;color:rgba(255,255,255,0.6);font-size:0.8rem;letter-spacing:1px;text-transform:uppercase">
+            <span style="font-size:2rem">▶️</span>
+            Add your videos below
+          </div>
+        </div>
+        <div class="video-info">
+          <div class="video-title">Your first video</div>
+          <div class="video-date">Add via YouTube link or upload below</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- YouTube link adder -->
+    <div class="youtube-add" data-aos="fade-up">
+      <h3>📺 Add a YouTube Video</h3>
+      <div class="youtube-add-row">
+        <input type="url" id="yt-url-input" placeholder="Paste YouTube link e.g. https://www.youtube.com/watch?v=..." />
+        <input type="text" id="yt-title-input" placeholder="Video title (e.g. Bridal Glam)" style="max-width:220px" />
+        <button onclick="addYouTubeVideo()">Add Video</button>
+      </div>
+    </div>
+
+    <!-- Local video upload -->
+    <div class="video-upload-wrap" data-aos="fade-up">
+      <div class="video-upload-area" onclick="document.getElementById('video-file-input').click()">
+        <div class="video-upload-icon">🎬</div>
+        <div class="video-upload-title">Upload Your Own Videos</div>
+        <div class="video-upload-desc">
+          Click to browse your device or drag &amp; drop MP4 files here.<br>
+          Videos will play directly on your website.
+        </div>
+        <span class="btn btn-rose" style="display:inline-flex;pointer-events:none">Choose Videos</span>
+      </div>
+      <input type="file" id="video-file-input" accept="video/*" multiple />
+      <div id="uploaded-videos-list"></div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" aria-label="Testimonials">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-label">Happy Clients</span>
+      <h2 class="section-title">What They <em>Say</em></h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card" data-aos="fade-up" data-aos-delay="0">
+        <div class="testimonial-quote">"</div>
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">I was absolutely glowing on my wedding day. Delight Beauty Empire made my vision come true and even better. Every guest was asking who did my makeup!</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar av-1">AO</div>
+          <div>
+            <div class="testimonial-name">Adaeze Okonkwo</div>
+            <div class="testimonial-role">Bride — Lagos</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card" data-aos="fade-up" data-aos-delay="80">
+        <div class="testimonial-quote">"</div>
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">Best nail art I've ever had! She took her time, listened to exactly what I wanted and delivered something even more beautiful. Will always come back.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar av-2">FN</div>
+          <div>
+            <div class="testimonial-name">Fatima Nwosu</div>
+            <div class="testimonial-role">Regular Client</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card" data-aos="fade-up" data-aos-delay="160">
+        <div class="testimonial-quote">"</div>
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">My lash extensions lasted weeks and looked so natural. The service was warm, professional, and the results were breathtaking. 100% recommended!</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar av-3">CB</div>
+          <div>
+            <div class="testimonial-name">Chisom Bello</div>
+            <div class="testimonial-role">Client — Abuja</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" aria-label="Contact and booking">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-label">Get in Touch</span>
+      <h2 class="section-title">Book Your <em>Session</em></h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info" data-aos="fade-right">
+        <h3>Let's Create Magic Together</h3>
+        <p>Ready for your transformation? Fill in the form and we'll get back to you within a few hours. You can also reach us directly on WhatsApp for faster response.</p>
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="contact-item-icon">💬</div>
+            <div class="contact-item-text">
+              <div class="label">WhatsApp</div>
+              <div class="value"><a href="https://wa.me/2349033660736" target="_blank" rel="noopener">+234 903 366 0736</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">📧</div>
+            <div class="contact-item-text">
+              <div class="label">Email</div>
+              <div class="value"><a href="mailto:femiolaniyi36@gmail.com">femiolaniyi36@gmail.com</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">📸</div>
+            <div class="contact-item-text">
+              <div class="label">Instagram</div>
+              <div class="value"><a href="https://www.instagram.com/delightbeautyempire" target="_blank" rel="noopener">@delightbeautyempire</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">🏠</div>
+            <div class="contact-item-text">
+              <div class="label">Home Service</div>
+              <div class="value">Available — mention in your message</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-card" data-aos="fade-left" data-aos-delay="100">
+        <form id="booking-form" novalidate>
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="f-name">Your Name *</label>
+              <input type="text" id="f-name" name="name" placeholder="Full name" required />
+            </div>
+            <div class="form-group">
+              <label for="f-phone">Phone Number *</label>
+              <input type="tel" id="f-phone" name="phone" placeholder="+234..." required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="f-email">Email Address *</label>
+            <input type="email" id="f-email" name="email" placeholder="your@email.com" required />
+          </div>
+          <div class="form-group">
+            <label for="f-service">Service Interested In *</label>
+            <select id="f-service" name="service" required>
+              <option value="">— Choose a service —</option>
+              <option>Bridal Makeup</option>
+              <option>Glam Makeup</option>
+              <option>Hair Styling</option>
+              <option>Lash Extensions</option>
+              <option>Nail Art</option>
+              <option>Skincare Facial</option>
+              <option>Multiple Services</option>
+              <option>Not Sure Yet</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="f-date">Preferred Date</label>
+            <input type="date" id="f-date" name="date" />
+          </div>
+          <div class="form-group">
+            <label for="f-message">Tell Us About Your Needs</label>
+            <textarea id="f-message" name="message" placeholder="Event type, location, any special requirements..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-rose" style="width:100%;justify-content:center;font-size:0.8rem" id="submit-btn">
+            ✨ Send Booking Request
+          </button>
+          <div id="form-status"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Delight Beauty Empire</div>
+    <div class="footer-tagline">Where Beauty Meets Elegance &amp; Grace</div>
+    <ul class="footer-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#videos">Videos</a></li>
+      <li><a href="#contact">Book Now</a></li>
+    </ul>
+    <div class="footer-socials">
+      <a href="https://www.instagram.com/delightbeautyempire" target="_blank" rel="noopener" class="footer-social" aria-label="Instagram">📸</a>
+      <a href="https://wa.me/2349033660736" target="_blank" rel="noopener" class="footer-social" aria-label="WhatsApp">💬</a>
+      <a href="mailto:femiolaniyi36@gmail.com" class="footer-social" aria-label="Email">📧</a>
+    </div>
+    <div class="footer-copy">
+      © 2025 Delight Beauty Empire. All rights reserved. Made with ❤️ for beauty.
+    </div>
+  </footer>
+
+  <!-- WHATSAPP FLOAT -->
+  <a id="wa-float" href="https://wa.me/2349033660736?text=Hello%20Delight%20Beauty%20Empire!%20I%20saw%20your%20website%20and%20I'd%20like%20to%20book%20a%20session." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    💬
+    <span class="wa-tooltip">Chat with us now!</span>
+  </a>
+
+  <!-- AOS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+  <script>
+    // ── AOS Init
+    AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 60 });
+
+    // ── Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // ── Mobile hamburger
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+    // ── Typing effect
+    const words = ['Elegance & Grace', 'Bridal Perfection', 'Flawless Looks', 'Your Best Self', 'Timeless Beauty'];
+    let wi = 0, ci = 0, deleting = false;
+    const el = document.getElementById('typed-text');
+    function type() {
+      const word = words[wi];
+      el.textContent = deleting ? word.substring(0, ci--) : word.substring(0, ci++);
+      if (!deleting && ci === word.length + 1) { setTimeout(() => { deleting = true; }, 1800); }
+      if (deleting && ci < 0) { deleting = false; wi = (wi + 1) % words.length; ci = 0; }
+      setTimeout(type, deleting ? 50 : 90);
+    }
+    setTimeout(type, 1200);
+
+    // ── YouTube video adder
+    function addYouTubeVideo() {
+      const urlInput = document.getElementById('yt-url-input');
+      const titleInput = document.getElementById('yt-title-input');
+      const url = urlInput.value.trim();
+      const title = titleInput.value.trim() || 'Delight Beauty Video';
+      if (!url) { alert('Please paste a YouTube link.'); return; }
+
+      let videoId = '';
+      const match = url.match(/(?:v=|youtu\.be\/|embed\/)([a-zA-Z0-9_-]{11})/);
+      if (match) videoId = match[1];
+      else { alert('Could not find a valid YouTube video ID in that link.'); return; }
+
+      const grid = document.getElementById('videos-grid');
+      const placeholder = grid.querySelector('[data-placeholder]');
+      if (placeholder) placeholder.remove();
+
+      const card = document.createElement('div');
+      card.className = 'video-card';
+      card.innerHTML = `
+        <div class="video-embed">
+          <iframe src="https://www.youtube.com/embed/${videoId}" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="video-info">
+          <div class="video-title">${title}</div>
+          <div class="video-date">Added ${new Date().toLocaleDateString('en-GB',{month:'long',year:'numeric'})}</div>
+        </div>`;
+      grid.appendChild(card);
+
+      urlInput.value = '';
+      titleInput.value = '';
+    }
+
+    // ── Local video upload preview
+    document.getElementById('video-file-input').addEventListener('change', function() {
+      const list = document.getElementById('uploaded-videos-list');
+      Array.from(this.files).forEach(file => {
+        const url = URL.createObjectURL(file);
+        const size = (file.size / (1024 * 1024)).toFixed(1) + ' MB';
+        const item = document.createElement('div');
+        item.className = 'uploaded-video-item';
+        item.innerHTML = `
+          <div class="uploaded-video-thumb">
+            <video src="${url}" muted playsinline preload="metadata"></video>
+          </div>
+          <div>
+            <div class="uploaded-video-name">${file.name}</div>
+            <div class="uploaded-video-size">${size}</div>
+          </div>`;
+        list.appendChild(item);
+
+        // Also add to videos grid
+        const grid = document.getElementById('videos-grid');
+        const card = document.createElement('div');
+        card.className = 'video-card';
+        card.innerHTML = `
+          <div class="video-embed" style="padding-bottom:56.25%;position:relative">
+            <video src="${url}" controls style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;"></video>
+          </div>
+          <div class="video-info">
+            <div class="video-title">${file.name.replace(/\.[^.]+$/, '')}</div>
+            <div class="video-date">${size}</div>
+          </div>`;
+        grid.appendChild(card);
+      });
+    });
+
+    // ── Drag & drop on upload area
+    const uploadArea = document.querySelector('.video-upload-area');
+    uploadArea.addEventListener('dragover', e => { e.preventDefault(); uploadArea.style.borderColor = '#8B3A5F'; });
+    uploadArea.addEventListener('dragleave', () => { uploadArea.style.borderColor = 'var(--rose)'; });
+    uploadArea.addEventListener('drop', e => {
+      e.preventDefault();
+      uploadArea.style.borderColor = 'var(--rose)';
+      const fi = document.getElementById('video-file-input');
+      fi.files = e.dataTransfer.files;
+      fi.dispatchEvent(new Event('change'));
+    });
+
+    // ── Contact form → Google Apps Script
+    const APPS_SCRIPT_URL = 'YOUR_APPS_SCRIPT_URL_HERE'; // ← paste your deployed URL
+
+    document.getElementById('booking-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = document.getElementById('submit-btn');
+      const status = document.getElementById('form-status');
+
+      const data = {
+        name: document.getElementById('f-name').value,
+        phone: document.getElementById('f-phone').value,
+        email: document.getElementById('f-email').value,
+        service: document.getElementById('f-service').value,
+        date: document.getElementById('f-date').value,
+        message: document.getElementById('f-message').value
+      };
+
+      if (!data.name || !data.phone || !data.email || !data.service) {
+        status.textContent = '⚠️ Please fill in all required fields.';
+        status.className = 'error';
+        return;
+      }
+
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+      status.className = '';
+      status.style.display = 'none';
+
+      try {
+        if (APPS_SCRIPT_URL === 'YOUR_APPS_SCRIPT_URL_HERE') {
+          // Demo mode — open WhatsApp instead
+          const msg = `Hello Delight Beauty Empire! 💄\n\nName: ${data.name}\nPhone: ${data.phone}\nEmail: ${data.email}\nService: ${data.service}\nDate: ${data.date || 'Flexible'}\nMessage: ${data.message || 'N/A'}`;
+          window.open('https://wa.me/2349033660736?text=' + encodeURIComponent(msg), '_blank');
+          status.textContent = '✅ Opening WhatsApp with your booking details!';
+          status.className = 'success';
+          this.reset();
+        } else {
+          const res = await fetch(APPS_SCRIPT_URL, {
+            method: 'POST',
+            body: JSON.stringify(data)
+          });
+          const json = await res.json();
+          if (json.success) {
+            status.textContent = '✅ Booking request sent! We\'ll reply within a few hours. ✨';
+            status.className = 'success';
+            this.reset();
+          } else throw new Error(json.error || 'Unknown error');
+        }
+      } catch (err) {
+        status.textContent = '❌ Something went wrong. Please WhatsApp us directly.';
+        status.className = 'error';
+        console.error(err);
+      } finally {
+        btn.textContent = '✨ Send Booking Request';
+        btn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
