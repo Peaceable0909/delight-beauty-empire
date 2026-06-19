@@ -15,7 +15,7 @@
 //    and replace YOUR_APPS_SCRIPT_URL_HERE with the URL you copied
 // ─────────────────────────────────────────────────────────────────────────────
 
-const OWNER_EMAIL = 'femiolaniyi36@gmail.com';
+const OWNER_EMAIL = 'delightbeautyempire4@gmail.com';
 const BUSINESS_NAME = 'Delight Beauty Empire';
 const WHATSAPP = '+234 903 366 0736';
 
