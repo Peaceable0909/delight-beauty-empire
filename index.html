@@ -1213,12 +1213,12 @@
           if (uploaded) {
             card.innerHTML = `
               <div class="video-embed" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
-                <video src="${RAW}assets/videos/${slot.file}" controls preload="metadata"
+                <video src="${RAW}assets/videos/${slot.file}"
+                  autoplay muted loop playsinline preload="auto"
                   style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;background:#000;"></video>
               </div>
               <div class="video-info">
                 <div class="video-title">${slot.title}</div>
-                <div class="video-date" style="color:#25D366;">✅ Live on website</div>
               </div>`;
           } else {
             card.innerHTML = `
