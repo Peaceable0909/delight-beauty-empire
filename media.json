@@ -8,17 +8,17 @@
     { "file": "vid6.mp4", "title": "Skincare Routine" }
   ],
   "photos": [
-    { "file": "photo1.jpg", "title": "Bridal Glam" },
-    { "file": "photo2.jpg", "title": "Editorial Look" },
-    { "file": "photo3.jpg", "title": "Hair Styling" },
-    { "file": "photo4.jpg", "title": "Lash Extensions" },
-    { "file": "photo5.jpg", "title": "Nail Art" },
-    { "file": "photo6.jpg", "title": "Skincare Glow" },
-    { "file": "photo7.jpg", "title": "Bridal Hair" },
-    { "file": "photo8.jpg", "title": "Glam Makeup" },
-    { "file": "photo9.jpg", "title": "Natural Look" },
-    { "file": "photo10.jpg", "title": "Party Glam" },
-    { "file": "photo11.jpg", "title": "Smokey Eyes" },
-    { "file": "photo12.jpg", "title": "Full Glam" }
+    { "file": "photo1.gif", "title": "Bridal Glam" },
+    { "file": "photo2.gif", "title": "Editorial Look" },
+    { "file": "photo3.gif", "title": "Hair Styling" },
+    { "file": "photo4.gif", "title": "Lash Extensions" },
+    { "file": "photo5.gif", "title": "Nail Art" },
+    { "file": "photo6.gif", "title": "Skincare Glow" },
+    { "file": "photo7.gif", "title": "Bridal Hair" },
+    { "file": "photo8.gif", "title": "Glam Makeup" },
+    { "file": "photo9.gif", "title": "Natural Look" },
+    { "file": "photo10.gif", "title": "Party Glam" },
+    { "file": "photo11.gif", "title": "Smokey Eyes" },
+    { "file": "photo12.gif", "title": "Full Glam" }
   ]
 }
