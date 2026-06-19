@@ -1,0 +1,15 @@
+{
+  "videos": [
+    { "file": "vid1.mp4", "title": "Bridal Transformation" },
+    { "file": "vid2.mp4", "title": "Hair Styling Tutorial" },
+    { "file": "vid3.mp4", "title": "Glam Makeup Look" }
+  ],
+  "photos": [
+    { "file": "photo1.jpg", "title": "Bridal Glam" },
+    { "file": "photo2.jpg", "title": "Editorial Look" },
+    { "file": "photo3.jpg", "title": "Hair Styling" },
+    { "file": "photo4.jpg", "title": "Lash Extensions" },
+    { "file": "photo5.jpg", "title": "Nail Art" },
+    { "file": "photo6.jpg", "title": "Skincare Glow" }
+  ]
+}

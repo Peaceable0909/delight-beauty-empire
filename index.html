@@ -1383,55 +1383,94 @@
     }
     setTimeout(type, 1200);
 
-    // ── Auto-load photos & videos from GitHub repo
-    const REPO = 'Peaceable0909/delight-beauty-empire';
+    // ── Named-slot media loader from media.json + GitHub
+    const REPO    = 'Peaceable0909/delight-beauty-empire';
+    const RAW     = `https://raw.githubusercontent.com/${REPO}/main/`;
+    const API     = `https://api.github.com/repos/${REPO}/contents/`;
 
     async function loadMediaFromGitHub() {
-      // Load photos into gallery
+      // 1. Load media.json slot definitions
+      let media = { videos: [], photos: [] };
       try {
-        const res = await fetch(`https://api.github.com/repos/${REPO}/contents/assets/images`);
-        if (res.ok) {
-          const files = await res.json();
-          const imgs = Array.isArray(files) ? files.filter(f => /\.(jpg|jpeg|png|gif|webp)$/i.test(f.name)) : [];
-          if (imgs.length > 0) {
-            const grid = document.getElementById('gallery-grid');
-            grid.innerHTML = imgs.map((f, i) => `
-              <div class="gallery-item" style="cursor:pointer" onclick="openLightbox('${f.download_url}','${f.name.replace(/'/g,"\\'")}')">
-                <img src="${f.download_url}" alt="${f.name}" loading="lazy"
-                  style="width:100%;height:100%;min-height:180px;object-fit:cover;border-radius:12px;display:block;" />
-                <div class="gallery-overlay"><span class="gallery-overlay-icon">🔍</span></div>
-              </div>`).join('');
-          }
-        }
+        const r = await fetch(RAW + 'media.json?t=' + Date.now());
+        if (r.ok) media = await r.json();
       } catch(e) {}
 
-      // Load videos
+      // 2. Get list of files actually uploaded
+      let uploadedVideos = [], uploadedPhotos = [];
       try {
-        const res = await fetch(`https://api.github.com/repos/${REPO}/contents/assets/videos`);
-        if (res.ok) {
-          const files = await res.json();
-          const vids = Array.isArray(files) ? files.filter(f => /\.(mp4|webm|mov)$/i.test(f.name)) : [];
-          if (vids.length > 0) {
-            const grid = document.getElementById('videos-grid');
-            grid.innerHTML = '';
-            vids.forEach(f => {
-              const title = f.name.replace(/\.[^.]+$/, '').replace(/[-_]/g, ' ');
-              const card = document.createElement('div');
-              card.className = 'video-card';
-              card.innerHTML = `
-                <div class="video-embed" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
-                  <video src="${f.download_url}" controls preload="metadata"
-                    style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;"></video>
-                </div>
-                <div class="video-info">
-                  <div class="video-title">${title}</div>
-                  <div class="video-date">Your video</div>
-                </div>`;
-              grid.appendChild(card);
-            });
-          }
-        }
+        const r = await fetch(API + 'assets/videos');
+        if (r.ok) uploadedVideos = (await r.json()).map(f => f.name.toLowerCase());
       } catch(e) {}
+      try {
+        const r = await fetch(API + 'assets/images');
+        if (r.ok) uploadedPhotos = (await r.json()).map(f => f.name.toLowerCase());
+      } catch(e) {}
+
+      // 3. Render video slots
+      const vGrid = document.getElementById('videos-grid');
+      if (media.videos.length > 0) {
+        vGrid.innerHTML = '';
+        media.videos.forEach(slot => {
+          const uploaded = uploadedVideos.includes(slot.file.toLowerCase());
+          const card = document.createElement('div');
+          card.className = 'video-card';
+          if (uploaded) {
+            card.innerHTML = `
+              <div class="video-embed" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
+                <video src="${RAW}assets/videos/${slot.file}" controls preload="metadata"
+                  style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;background:#000;"></video>
+              </div>
+              <div class="video-info">
+                <div class="video-title">${slot.title}</div>
+                <div class="video-date" style="color:#25D366;">✅ Live on website</div>
+              </div>`;
+          } else {
+            card.innerHTML = `
+              <div class="video-embed" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
+                <div style="position:absolute;inset:0;background:linear-gradient(135deg,#1A0820,#3B1040);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;">
+                  <span style="font-size:2.2rem;">⏳</span>
+                  <span style="font-size:0.7rem;letter-spacing:1px;color:rgba(255,255,255,0.4);text-transform:uppercase;">Waiting for</span>
+                  <span style="font-size:0.9rem;color:#C9A96E;font-weight:600;">${slot.file}</span>
+                </div>
+              </div>
+              <div class="video-info">
+                <div class="video-title">${slot.title}</div>
+                <div class="video-date" style="color:#C9A96E;">Upload <strong>${slot.file}</strong> to activate</div>
+              </div>`;
+          }
+          vGrid.appendChild(card);
+        });
+      }
+
+      // 4. Render photo slots
+      const pGrid = document.getElementById('gallery-grid');
+      if (media.photos.length > 0) {
+        pGrid.innerHTML = '';
+        media.photos.forEach(slot => {
+          const uploaded = uploadedPhotos.includes(slot.file.toLowerCase());
+          const item = document.createElement('div');
+          item.className = 'gallery-item';
+          if (uploaded) {
+            const src = `${RAW}assets/images/${slot.file}`;
+            item.style.cursor = 'pointer';
+            item.onclick = () => openLightbox(src, slot.title);
+            item.innerHTML = `
+              <img src="${src}" alt="${slot.title}" loading="lazy"
+                style="width:100%;height:100%;min-height:200px;object-fit:cover;border-radius:12px;display:block;" />
+              <div class="gallery-overlay"><span class="gallery-overlay-icon">🔍</span></div>`;
+          } else {
+            item.innerHTML = `
+              <div style="min-height:200px;border-radius:12px;background:rgba(255,255,255,0.04);border:1px dashed rgba(201,169,110,0.3);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:20px;">
+                <span style="font-size:1.8rem;opacity:0.35;">📸</span>
+                <span style="font-size:0.65rem;letter-spacing:2px;color:rgba(255,255,255,0.25);text-transform:uppercase;">Waiting for</span>
+                <span style="font-size:0.8rem;color:#C9A96E;font-weight:600;">${slot.file}</span>
+                <span style="font-size:0.7rem;color:rgba(255,255,255,0.2);">${slot.title}</span>
+              </div>`;
+          }
+          pGrid.appendChild(item);
+        });
+      }
     }
     loadMediaFromGitHub();
 
