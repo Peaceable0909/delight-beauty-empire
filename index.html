@@ -1,1367 +1,1193 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Delight Beauty Empire – Where Beauty Meets Elegance</title>
-  <meta name="description" content="Professional beauty services – bridal makeup, hair styling, skincare, lashes, nails and more. Book your transformation today." />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#430D29" />
+<title>Delight Beauty Empire — Where Beauty Meets Elegance</title>
+<meta name="description" content="Premium beauty studio — bridal makeup, hair styling, skincare, lashes and nails. Book your transformation on WhatsApp today." />
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-  <!-- AOS Scroll Animations -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+<style>
+  :root{
+    --cream:#FFF8F2;
+    --blush:#FCEAF0;
+    --blush-deep:#F6D9E4;
+    --rose:#C2487E;
+    --rose-deep:#94215C;
+    --wine:#430D29;
+    --wine-mid:#671A3F;
+    --ink:#1B0915;
+    --gold:#C8985E;
+    --gold-light:#F2E3C9;
+    --text:#3B2632;
+    --muted:#8C7681;
+    --white:#FFFFFF;
+    --wa:#25D366;
+    --radius-lg:26px;
+    --radius-md:18px;
+    --radius-sm:12px;
+    --shadow-soft:0 18px 50px rgba(67,13,41,0.12);
+    --shadow-deep:0 24px 60px rgba(18,4,12,0.45);
+    --ease:cubic-bezier(.16,.84,.44,1);
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Poppins',sans-serif;
+    background:var(--cream);
+    color:var(--text);
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+  button{font-family:inherit;}
+  ul{list-style:none;}
+  .script{font-family:'Mrs Saint Delafield',cursive;font-weight:400;}
 
-  <style>
-    :root {
-      --cream: #FFF8F5;
-      --rose: #B5547F;
-      --rose-light: #F9E0EC;
-      --rose-dark: #8B3A5F;
-      --gold: #C9A96E;
-      --gold-light: #F5ECD9;
-      --dark: #2D1B2E;
-      --dark-mid: #4A2040;
-      --gray: #6B6B6B;
-      --white: #FFFFFF;
-      --wa-green: #25D366;
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{
+      animation-duration:0.001ms !important;
+      animation-iteration-count:1 !important;
+      transition-duration:0.001ms !important;
+      scroll-behavior:auto !important;
     }
+  }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  /* ===== ICON SYSTEM ===== */
+  .icon{width:20px;height:20px;flex-shrink:0;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+  .icon-fill{fill:currentColor;stroke:none;}
 
-    html { scroll-behavior: smooth; }
+  /* ===== REVEAL ANIMATION SYSTEM ===== */
+  [data-reveal]{opacity:0;transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:var(--d,0s);}
+  [data-reveal="up"]{transform:translateY(34px);}
+  [data-reveal="fade"]{transform:none;}
+  [data-reveal="left"]{transform:translateX(-36px);}
+  [data-reveal="right"]{transform:translateX(36px);}
+  [data-reveal="zoom"]{transform:scale(.92);}
+  [data-reveal].is-visible{opacity:1;transform:none;}
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: var(--cream);
-      color: var(--dark);
-      overflow-x: hidden;
-    }
+  @keyframes blobFloat{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(22px,-18px) scale(1.06);}}
+  @keyframes blobFloat2{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(-18px,16px) scale(1.08);}}
+  @keyframes bob{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+  @keyframes shimmer{0%{background-position:-220% 0;}100%{background-position:220% 0;}}
+  @keyframes pulseRing{0%{box-shadow:0 0 0 0 rgba(37,211,102,.45);}70%{box-shadow:0 0 0 16px rgba(37,211,102,0);}100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}}
+  @keyframes blink{50%{opacity:0;}}
+  @keyframes spin{to{transform:rotate(360deg);}}
 
-    img { max-width: 100%; display: block; }
+  .shimmer{background:linear-gradient(110deg, rgba(255,255,255,.05) 8%, rgba(255,255,255,.16) 20%, rgba(255,255,255,.05) 34%);background-size:220% 100%;animation:shimmer 2.6s linear infinite;}
 
-    /* ── NAVBAR ── */
-    #navbar {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 1000;
-      background: transparent;
-      padding: 20px 5%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      transition: all 0.4s ease;
-    }
-    #navbar.scrolled {
-      background: rgba(255,255,255,0.97);
-      padding: 14px 5%;
-      box-shadow: 0 2px 20px rgba(45,27,46,0.08);
-    }
-    .nav-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.3rem;
-      color: var(--white);
-      letter-spacing: 2px;
-      text-decoration: none;
-      transition: color 0.4s;
-    }
-    #navbar.scrolled .nav-logo { color: var(--rose); }
+  /* ===== BUTTONS ===== */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:9px;
+    padding:15px 30px;border-radius:50px;border:none;cursor:pointer;
+    font-size:.78rem;font-weight:600;letter-spacing:1.6px;text-transform:uppercase;
+    text-decoration:none;transition:transform .25s var(--ease), box-shadow .25s var(--ease), background .25s var(--ease);
+    touch-action:manipulation;white-space:nowrap;
+  }
+  .btn .icon{width:17px;height:17px;}
+  .btn-primary{background:linear-gradient(135deg,var(--rose),var(--rose-deep));color:#fff;box-shadow:0 14px 30px rgba(148,33,92,.35);}
+  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 18px 36px rgba(148,33,92,.45);}
+  .btn-wa{background:var(--wa);color:#fff;box-shadow:0 14px 30px rgba(37,211,102,.3);}
+  .btn-wa:hover{transform:translateY(-3px);box-shadow:0 18px 36px rgba(37,211,102,.4);}
+  .btn-outline{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.4);}
+  .btn-outline:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-3px);}
+  .btn-ghost-dark{background:rgba(67,13,41,.06);color:var(--wine);border:1px solid rgba(67,13,41,.14);}
+  .btn-ghost-dark:hover{background:rgba(67,13,41,.1);transform:translateY(-2px);}
+  .btn-sm{padding:11px 20px;font-size:.7rem;}
+  .btn:active{transform:translateY(0) scale(.98);}
 
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-    .nav-links a {
-      font-size: 0.75rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.85);
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    #navbar.scrolled .nav-links a { color: var(--gray); }
-    .nav-links a:hover { color: var(--rose) !important; }
+  .link-arrow{display:inline-flex;align-items:center;gap:6px;font-size:.72rem;font-weight:600;letter-spacing:1.4px;text-transform:uppercase;text-decoration:none;color:var(--rose);transition:gap .25s var(--ease);}
+  .link-arrow .icon{width:15px;height:15px;transition:transform .25s var(--ease);}
+  .link-arrow:hover{gap:11px;}
+  .link-arrow:hover .icon{transform:translateX(2px);}
 
-    .nav-book-btn {
-      background: var(--rose);
-      color: white !important;
-      padding: 8px 20px;
-      border-radius: 25px;
-      font-size: 0.7rem !important;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-    .nav-book-btn:hover { background: var(--rose-dark); color: white !important; }
+  /* ===== NAVBAR ===== */
+  #navbar{
+    position:fixed;top:0;left:0;right:0;z-index:1000;
+    padding:18px 5%;display:flex;align-items:center;justify-content:space-between;
+    transition:background .4s var(--ease), padding .4s var(--ease), box-shadow .4s var(--ease);
+  }
+  #navbar.scrolled{background:rgba(255,248,242,.92);backdrop-filter:blur(14px);padding:11px 5%;box-shadow:0 8px 30px rgba(67,13,41,.08);}
+  .nav-logo{display:flex;align-items:center;gap:9px;text-decoration:none;}
+  .nav-logo .icon{width:24px;height:24px;color:var(--gold);}
+  .nav-logo-text{font-family:'Playfair Display',serif;line-height:1.05;color:#fff;transition:color .4s var(--ease);}
+  .nav-logo-text .top{display:block;font-size:1.15rem;letter-spacing:2px;}
+  .nav-logo-text .bottom{display:block;font-size:.55rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);}
+  #navbar.scrolled .nav-logo-text{color:var(--wine);}
 
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 5px;
-    }
-    .hamburger span {
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: var(--white);
-      transition: all 0.3s;
-    }
-    #navbar.scrolled .hamburger span { background: var(--dark); }
+  .nav-links{display:flex;align-items:center;gap:2.1rem;}
+  .nav-links a{font-size:.74rem;letter-spacing:1.8px;text-transform:uppercase;color:rgba(255,255,255,.85);text-decoration:none;position:relative;padding:4px 0;}
+  .nav-links a::after{content:'';position:absolute;left:0;bottom:-2px;width:0;height:1.5px;background:var(--gold);transition:width .3s var(--ease);}
+  .nav-links a:hover::after{width:100%;}
+  #navbar.scrolled .nav-links a{color:var(--text);}
+  #navbar.scrolled .nav-links a:hover{color:var(--rose);}
+  .nav-links a:hover{color:var(--gold);}
 
-    /* ── HERO ── */
-    #hero {
-      min-height: 100vh;
-      background: linear-gradient(160deg, #3B1040 0%, #1A0820 40%, #2D0A30 70%, #4A1535 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      padding: 120px 5% 80px;
-    }
+  .nav-cta{display:flex;align-items:center;gap:14px;}
+  .hamburger{display:none;align-items:center;justify-content:center;width:42px;height:42px;border:none;background:rgba(255,255,255,.1);border-radius:50%;cursor:pointer;color:#fff;}
+  #navbar.scrolled .hamburger{background:rgba(67,13,41,.07);color:var(--wine);}
+  .hamburger .icon{width:20px;height:20px;}
+  .hamburger .icon-close{display:none;}
+  .hamburger.open .icon-menu{display:none;}
+  .hamburger.open .icon-close{display:block;}
 
-    .hero-bg-circles .circle {
-      position: absolute;
-      border-radius: 50%;
-      opacity: 0.06;
-    }
-    .circle-1 { width: 600px; height: 600px; background: var(--rose); top: -200px; right: -100px; }
-    .circle-2 { width: 400px; height: 400px; background: var(--gold); bottom: -100px; left: -50px; }
-    .circle-3 { width: 200px; height: 200px; background: var(--rose); bottom: 100px; right: 10%; }
+  .mobile-nav{position:fixed;inset:0;background:linear-gradient(165deg,var(--wine) 0%, var(--ink) 100%);z-index:1100;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2rem;opacity:0;pointer-events:none;transition:opacity .4s var(--ease);}
+  .mobile-nav.open{opacity:1;pointer-events:auto;}
+  .mobile-nav a{font-family:'Playfair Display',serif;font-size:1.6rem;color:#fff;text-decoration:none;}
+  .mobile-nav .mobile-nav-cta{margin-top:.5rem;}
+  .mobile-nav-close{position:absolute;top:22px;right:6%;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.08);border:none;display:flex;align-items:center;justify-content:center;color:#fff;cursor:pointer;}
 
-    .hero-content { position: relative; z-index: 2; max-width: 700px; }
+  /* ===== SECTION SHARED ===== */
+  section{padding:100px 5%;position:relative;}
+  .section-header{text-align:center;max-width:560px;margin:0 auto 52px;}
+  .section-label{display:inline-flex;align-items:center;gap:8px;font-size:.7rem;letter-spacing:3.5px;text-transform:uppercase;color:var(--rose);margin-bottom:14px;}
+  .section-label::before,.section-label::after{content:'';width:18px;height:1px;background:var(--gold);}
+  .section-title{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,4.4vw,2.9rem);color:var(--wine);line-height:1.25;}
+  .section-title em{font-style:italic;color:var(--rose);}
+  .section-sub{margin-top:14px;font-size:.92rem;color:var(--muted);line-height:1.8;}
+  .on-dark .section-title{color:#fff;}
+  .on-dark .section-sub{color:rgba(255,255,255,.55);}
 
-    .hero-badge {
-      display: inline-block;
-      border: 1px solid rgba(201,169,110,0.4);
-      color: var(--gold);
-      font-size: 0.65rem;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      padding: 8px 20px;
-      border-radius: 25px;
-      margin-bottom: 28px;
-    }
+  /* ===== HERO ===== */
+  #hero{
+    min-height:100svh;display:flex;align-items:center;padding:128px 5% 70px;
+    background:radial-gradient(120% 90% at 15% 0%, #5A1A3C 0%, transparent 55%), linear-gradient(165deg,#2B0A1C 0%, var(--ink) 55%, #34102A 100%);
+    position:relative;overflow:hidden;
+  }
+  .hero-blob{position:absolute;border-radius:50%;filter:blur(10px);opacity:.5;pointer-events:none;}
+  .hero-blob-1{width:480px;height:480px;background:radial-gradient(circle,rgba(194,72,126,.5),transparent 70%);top:-160px;right:-120px;animation:blobFloat 11s ease-in-out infinite;}
+  .hero-blob-2{width:380px;height:380px;background:radial-gradient(circle,rgba(200,152,94,.32),transparent 70%);bottom:-140px;left:-100px;animation:blobFloat2 13s ease-in-out infinite;}
+  .hero-grid{position:relative;z-index:2;max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:48px;align-items:center;}
 
-    .hero-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.4rem, 6vw, 4.2rem);
-      color: var(--white);
-      line-height: 1.2;
-      margin-bottom: 24px;
-    }
-    .hero-title em { color: var(--gold); font-style: italic; }
+  .hero-visual-wrap{display:flex;justify-content:center;position:relative;}
+  .hero-visual-frame{position:relative;width:min(360px,86vw);}
+  .hero-visual-art{
+    aspect-ratio:4/5;border-radius:28px;overflow:hidden;position:relative;
+    background:linear-gradient(150deg,#5A1936,#2A0A1C 70%);
+    border:1px solid rgba(200,152,94,.3);box-shadow:var(--shadow-deep);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+  }
+  .hero-visual-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .hero-visual-art .icon{width:38px;height:38px;color:var(--gold);opacity:.85;}
+  .hero-monogram{font-family:'Playfair Display',serif;font-style:italic;font-size:1.7rem;color:#fff;letter-spacing:1px;}
+  .hero-monogram-sub{font-size:.62rem;letter-spacing:5px;text-transform:uppercase;color:var(--gold);}
+  .hero-visual-deco{position:absolute;inset:14px;border:1px solid rgba(200,152,94,.35);border-radius:20px;pointer-events:none;}
+  .hero-badge{
+    position:absolute;bottom:-18px;right:-14px;background:linear-gradient(135deg,var(--rose),var(--rose-deep));
+    color:#fff;padding:16px 18px;border-radius:18px;text-align:center;box-shadow:0 16px 34px rgba(148,33,92,.4);
+    animation:bob 4.5s ease-in-out infinite;
+  }
+  .hero-badge .num{display:block;font-family:'Playfair Display',serif;font-size:1.9rem;line-height:1;}
+  .hero-badge .txt{font-size:.6rem;letter-spacing:1.4px;text-transform:uppercase;opacity:.9;}
 
-    .hero-subtitle {
-      font-size: 0.95rem;
-      color: rgba(255,255,255,0.65);
-      line-height: 1.8;
-      margin-bottom: 40px;
-      max-width: 480px;
-      margin-left: auto;
-      margin-right: auto;
-    }
+  .hero-content{position:relative;z-index:2;text-align:center;}
+  .hero-eyebrow{font-family:'Mrs Saint Delafield',cursive;font-size:1.9rem;color:var(--gold);margin-bottom:6px;}
+  .hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.3rem,7vw,3.6rem);color:#fff;line-height:1.18;margin-bottom:20px;}
+  .hero-title .accent{font-family:'Mrs Saint Delafield',cursive;font-style:normal;color:var(--gold);font-size:1.25em;display:inline-block;line-height:.9;padding-left:.1em;}
+  .hero-subtitle{font-size:.95rem;color:rgba(255,255,255,.6);line-height:1.85;max-width:440px;margin:0 auto 32px;}
+  .hero-buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:30px;}
+  .hero-social{display:flex;align-items:center;justify-content:center;gap:14px;}
+  .avatar-stack{display:flex;}
+  .avatar-stack span{width:36px;height:36px;border-radius:50%;border:2px solid var(--ink);display:flex;align-items:center;justify-content:center;font-size:.66rem;font-weight:600;color:#fff;margin-left:-10px;}
+  .avatar-stack span:first-child{margin-left:0;}
+  .av-1{background:linear-gradient(135deg,#E8A4C0,#C2487E);}
+  .av-2{background:linear-gradient(135deg,#F0CB8E,#C8985E);}
+  .av-3{background:linear-gradient(135deg,#C490CC,#7A3080);}
+  .hero-rating{display:flex;align-items:center;gap:6px;}
+  .hero-rating .stars{display:flex;gap:1px;color:var(--gold);}
+  .hero-rating .stars .icon{width:13px;height:13px;}
+  .hero-rating span.label{font-size:.74rem;color:rgba(255,255,255,.6);}
 
-    .hero-buttons {
-      display: flex;
-      gap: 14px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
+  .hero-scroll-cue{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;z-index:2;color:rgba(255,255,255,.35);}
+  .hero-scroll-cue .line{width:1px;height:42px;background:linear-gradient(to bottom, rgba(255,255,255,.4), transparent);animation:scrollLine 2.2s ease-in-out infinite;}
+  @keyframes scrollLine{0%,100%{opacity:.3;transform:scaleY(1);}50%{opacity:1;transform:scaleY(.55);}}
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 14px 32px;
-      border-radius: 40px;
-      font-size: 0.75rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      font-weight: 500;
-      cursor: pointer;
-      text-decoration: none;
-      transition: all 0.3s;
-      border: none;
-    }
-    .btn-rose {
-      background: var(--rose);
-      color: white;
-    }
-    .btn-rose:hover { background: var(--rose-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(181,84,127,0.35); }
+  /* ===== STATS BAR ===== */
+  #stats-wrap{padding:0 5%;margin-top:-58px;position:relative;z-index:5;}
+  .stats-bar{
+    max-width:1080px;margin:0 auto;background:var(--white);border-radius:22px;box-shadow:var(--shadow-soft);
+    display:grid;grid-template-columns:repeat(2,1fr);gap:0;overflow:hidden;
+  }
+  .stat-item{display:flex;align-items:center;gap:14px;padding:26px 20px;border-right:1px solid rgba(67,13,41,.06);border-bottom:1px solid rgba(67,13,41,.06);}
+  .stat-item:nth-child(2n){border-right:none;}
+  .stat-icon{width:46px;height:46px;border-radius:14px;background:var(--blush);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .stat-icon .icon{width:21px;height:21px;color:var(--rose);}
+  .stat-num{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--wine);line-height:1;}
+  .stat-label{font-size:.68rem;letter-spacing:.4px;color:var(--muted);margin-top:3px;}
 
-    .btn-outline {
-      background: transparent;
-      color: white;
-      border: 1.5px solid rgba(255,255,255,0.35);
-    }
-    .btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+  /* ===== ABOUT ===== */
+  #about{background:var(--cream);padding-top:140px;}
+  .about-grid{display:grid;grid-template-columns:1fr;gap:48px;align-items:center;max-width:1120px;margin:0 auto;}
+  .about-visual{position:relative;}
+  .about-visual-art{
+    aspect-ratio:4/4.6;border-radius:26px;position:relative;overflow:hidden;
+    background:linear-gradient(150deg,var(--blush),var(--gold-light));
+    display:flex;align-items:center;justify-content:center;
+  }
+  .about-visual-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .about-flourish{width:46%;height:auto;color:var(--rose-deep);opacity:.55;}
+  .about-quote-badge{
+    position:absolute;left:-18px;bottom:24px;max-width:230px;background:linear-gradient(135deg,var(--rose),var(--rose-deep));
+    color:#fff;padding:22px;border-radius:18px;box-shadow:0 18px 40px rgba(148,33,92,.35);
+  }
+  .about-quote-badge .icon{width:26px;height:26px;margin-bottom:8px;opacity:.85;}
+  .about-quote-badge p{font-family:'Playfair Display',serif;font-style:italic;font-size:1rem;line-height:1.4;}
+  .about-years{position:absolute;top:-16px;right:-10px;width:84px;height:84px;border-radius:50%;background:var(--wine);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 14px 30px rgba(67,13,41,.35);}
+  .about-years .num{font-family:'Playfair Display',serif;font-size:1.5rem;line-height:1;}
+  .about-years .txt{font-size:.5rem;letter-spacing:1px;text-transform:uppercase;color:var(--gold-light);}
 
-    .btn-wa {
-      background: var(--wa-green);
-      color: white;
-    }
-    .btn-wa:hover { background: #1da851; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,211,102,0.3); }
+  .about-text .section-header{text-align:left;margin:0 0 22px;max-width:none;}
+  .about-text .section-label{justify-content:flex-start;}
+  .about-text .section-label::before{display:none;}
+  .about-text p.lede{color:var(--muted);line-height:1.9;font-size:.92rem;margin-bottom:22px;}
+  .about-features{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-bottom:28px;}
+  .about-feature{display:flex;align-items:center;gap:10px;font-size:.82rem;color:var(--text);}
+  .about-feature .check{width:22px;height:22px;border-radius:50%;background:var(--blush);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .about-feature .check .icon{width:12px;height:12px;color:var(--rose-deep);stroke-width:2.4;}
 
-    .hero-scroll {
-      position: absolute;
-      bottom: 32px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-      color: rgba(255,255,255,0.35);
-      font-size: 0.65rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      z-index: 2;
-    }
-    .hero-scroll-line {
-      width: 1px;
-      height: 50px;
-      background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
-      animation: scrollLine 2s ease-in-out infinite;
-    }
-    @keyframes scrollLine {
-      0%, 100% { opacity: 0.3; transform: scaleY(1); }
-      50% { opacity: 1; transform: scaleY(0.6); }
-    }
+  /* ===== SERVICES ===== */
+  #services{background:var(--blush);}
+  .services-grid{display:grid;grid-template-columns:1fr;gap:22px;max-width:1120px;margin:0 auto;}
+  .service-card{background:var(--white);border-radius:var(--radius-md);overflow:hidden;box-shadow:0 10px 30px rgba(67,13,41,.06);transition:transform .35s var(--ease), box-shadow .35s var(--ease);}
+  .service-card:hover{transform:translateY(-6px);box-shadow:0 22px 48px rgba(67,13,41,.13);}
+  .service-media{aspect-ratio:16/10;position:relative;display:flex;align-items:center;justify-content:center;}
+  .sm-1{background:linear-gradient(140deg,#5A1936,#94215C);}
+  .sm-2{background:linear-gradient(140deg,#6E1A45,#C2487E);}
+  .sm-3{background:linear-gradient(140deg,#7A4A2A,#C8985E);}
+  .sm-4{background:linear-gradient(140deg,#43203F,#7A3080);}
+  .sm-5{background:linear-gradient(140deg,#94215C,#430D29);}
+  .sm-6{background:linear-gradient(140deg,#C8985E,#94215C);}
+  .service-media .icon{width:40px;height:40px;color:#fff;opacity:.85;}
+  .service-badge{position:absolute;left:16px;bottom:-18px;width:46px;height:46px;border-radius:14px;background:var(--white);box-shadow:0 10px 22px rgba(67,13,41,.18);display:flex;align-items:center;justify-content:center;}
+  .service-badge .icon{width:21px;height:21px;color:var(--rose-deep);}
+  .service-body{padding:30px 20px 22px;}
+  .service-name{font-family:'Playfair Display',serif;font-size:1.18rem;color:var(--wine);margin-bottom:6px;}
+  .service-desc{font-size:.82rem;color:var(--muted);line-height:1.7;margin-bottom:16px;}
+  .service-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;}
+  .service-price{font-size:.72rem;color:var(--gold);font-weight:700;letter-spacing:.4px;}
+  .service-price small{display:block;font-weight:400;color:var(--muted);text-transform:uppercase;letter-spacing:1.4px;font-size:.6rem;margin-bottom:2px;}
 
-    /* ── SECTIONS SHARED ── */
-    section { padding: 80px 5%; }
+  /* ===== RAILS (gallery / videos / instagram) ===== */
+  .rail-header{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;max-width:1120px;margin:0 auto 30px;flex-wrap:wrap;}
+  .rail{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:4px 5% 12px;margin:0 -5%;}
+  .rail::-webkit-scrollbar{display:none;}
+  .rail-nav{display:flex;gap:8px;}
+  .rail-nav button{width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .25s,border-color .25s;}
+  .rail-nav button:hover{background:rgba(255,255,255,.14);border-color:var(--gold);color:var(--gold);}
+  .rail-nav.on-light button{border-color:rgba(67,13,41,.15);background:rgba(67,13,41,.05);color:var(--wine);}
+  .rail-nav.on-light button:hover{background:var(--rose);border-color:var(--rose);color:#fff;}
 
-    .section-header { text-align: center; margin-bottom: 56px; }
-    .section-label {
-      font-size: 0.65rem;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: var(--gold);
-      display: block;
-      margin-bottom: 10px;
-    }
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      color: var(--dark);
-      margin-bottom: 14px;
-      line-height: 1.3;
-    }
-    .section-title em { color: var(--rose); font-style: italic; }
-    .section-divider {
-      width: 50px;
-      height: 2px;
-      background: linear-gradient(to right, var(--rose), var(--gold));
-      margin: 0 auto;
-    }
+  /* ===== GALLERY ===== */
+  #gallery{background:linear-gradient(180deg,var(--ink),#2A0E1F);}
+  .gallery-card{scroll-snap-align:start;flex:0 0 auto;width:240px;}
+  .gallery-card-inner{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:4/5;cursor:pointer;background:rgba(255,255,255,.04);border:1px dashed rgba(200,152,94,.3);}
+  .gallery-card-inner img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease);}
+  .gallery-card-inner:hover img{transform:scale(1.06);}
+  .gallery-card-inner .overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%, rgba(27,9,21,.85));opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;padding:16px;}
+  .gallery-card-inner:hover .overlay{opacity:1;}
+  .overlay .zoom-pill{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.16);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;color:#fff;margin-left:auto;}
+  .overlay .zoom-pill .icon{width:17px;height:17px;}
+  .gallery-waiting{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;padding:18px;}
+  .gallery-waiting .icon{width:26px;height:26px;color:rgba(200,152,94,.55);}
+  .gallery-waiting .label{font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.3);}
+  .gallery-waiting .file{font-size:.78rem;color:var(--gold);font-weight:600;}
+  .gallery-cap{font-size:.7rem;color:rgba(255,255,255,.4);margin-top:10px;text-align:center;}
+  .gallery-note{text-align:center;margin-top:6px;font-size:.82rem;color:rgba(255,255,255,.4);}
+  .gallery-note a{color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(200,152,94,.35);}
 
-    /* ── ABOUT ── */
-    #about { background: var(--white); }
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .about-image-wrap {
-      position: relative;
-    }
-    .about-image-placeholder {
-      background: linear-gradient(135deg, #F9E0EC, #F5ECD9);
-      border-radius: 20px;
-      aspect-ratio: 4/5;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 4rem;
-      overflow: hidden;
-    }
-    .about-image-placeholder img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 20px;
-    }
-    .about-badge {
-      position: absolute;
-      bottom: -20px;
-      right: -20px;
-      background: var(--rose);
-      color: white;
-      padding: 16px 20px;
-      border-radius: 16px;
-      text-align: center;
-      box-shadow: 0 10px 30px rgba(181,84,127,0.3);
-    }
-    .about-badge .num {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      display: block;
-      line-height: 1;
-    }
-    .about-badge .txt {
-      font-size: 0.65rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      opacity: 0.85;
-    }
-    .about-text .section-header { text-align: left; margin-bottom: 24px; }
-    .about-text .section-divider { margin: 0 0 24px; }
-    .about-text p {
-      color: var(--gray);
-      line-height: 1.9;
-      font-size: 0.9rem;
-      margin-bottom: 16px;
-    }
-    .about-features {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin: 24px 0;
-    }
-    .about-feature {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 0.8rem;
-      color: var(--dark);
-    }
-    .about-feature .dot {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: var(--rose);
-      flex-shrink: 0;
-    }
+  #lightbox{display:none;position:fixed;inset:0;background:rgba(10,3,8,.94);z-index:9999;align-items:center;justify-content:center;flex-direction:column;gap:18px;padding:20px;}
+  #lightbox img{max-width:92vw;max-height:80vh;border-radius:14px;object-fit:contain;}
+  #lightbox-cap{color:rgba(255,255,255,.7);font-size:.85rem;}
+  .lightbox-close{background:rgba(255,255,255,.12);border:none;color:#fff;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;}
 
-    /* ── SERVICES ── */
-    #services { background: var(--cream); }
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 24px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .service-card {
-      background: var(--white);
-      border-radius: 20px;
-      padding: 36px 28px;
-      transition: all 0.4s;
-      position: relative;
-      overflow: hidden;
-      cursor: default;
-    }
-    .service-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(to right, var(--rose), var(--gold));
-      transform: scaleX(0);
-      transition: transform 0.4s;
-    }
-    .service-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(45,27,46,0.1); }
-    .service-card:hover::before { transform: scaleX(1); }
-    .service-icon {
-      width: 60px; height: 60px;
-      border-radius: 16px;
-      background: var(--rose-light);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.6rem;
-      margin-bottom: 20px;
-    }
-    .service-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.15rem;
-      color: var(--dark);
-      margin-bottom: 8px;
-    }
-    .service-desc {
-      font-size: 0.82rem;
-      color: var(--gray);
-      line-height: 1.7;
-      margin-bottom: 16px;
-    }
-    .service-price {
-      font-size: 0.75rem;
-      color: var(--gold);
-      font-weight: 600;
-      letter-spacing: 1px;
-    }
+  /* ===== VIDEOS ===== */
+  #videos{background:var(--cream);}
+  .video-card{scroll-snap-align:start;flex:0 0 auto;width:190px;}
+  .video-frame{position:relative;aspect-ratio:9/16;border-radius:20px;overflow:hidden;background:linear-gradient(150deg,#5A1936,#2A0A1C);box-shadow:0 16px 36px rgba(67,13,41,.18);}
+  .video-frame video,.video-frame iframe{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:none;}
+  .video-frame .play-pill{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:50px;height:50px;border-radius:50%;background:rgba(255,255,255,.16);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;color:#fff;pointer-events:none;}
+  .video-frame .play-pill .icon{width:20px;height:20px;margin-left:2px;}
+  .video-waiting{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;padding:14px;}
+  .video-waiting .icon{width:24px;height:24px;color:rgba(200,152,94,.55);}
+  .video-waiting .label{font-size:.55rem;letter-spacing:1.6px;text-transform:uppercase;color:rgba(255,255,255,.32);}
+  .video-waiting .file{font-size:.72rem;color:var(--gold);font-weight:600;}
+  .video-title{margin-top:10px;font-size:.78rem;font-weight:600;color:var(--wine);text-align:center;}
 
-    /* ── GALLERY ── */
-    #gallery { background: var(--dark); }
-    #gallery .section-title { color: var(--white); }
-    #gallery .section-label { color: var(--gold); }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: auto;
-      gap: 12px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .gallery-item {
-      border-radius: 12px;
-      overflow: hidden;
-      position: relative;
-      cursor: pointer;
-    }
-    .gallery-item:nth-child(1) { grid-row: span 2; }
-    .gallery-item:nth-child(5) { grid-column: span 2; }
-    .gallery-placeholder {
-      width: 100%;
-      aspect-ratio: 1;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 0.7rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.8);
-      font-weight: 500;
-      position: relative;
-    }
-    .gallery-item:nth-child(1) .gallery-placeholder { aspect-ratio: unset; height: 100%; min-height: 300px; }
-    .gallery-item:nth-child(5) .gallery-placeholder { aspect-ratio: unset; height: 200px; }
-    .gp-1 { background: linear-gradient(135deg, #C8789A, #E8A4C0); }
-    .gp-2 { background: linear-gradient(135deg, #C9A96E, #E8C98A); }
-    .gp-3 { background: linear-gradient(135deg, #9B5EA2, #C490CC); }
-    .gp-4 { background: linear-gradient(135deg, #B5547F, #D4789A); }
-    .gp-5 { background: linear-gradient(135deg, #3B1040, #7A3080); }
-    .gp-6 { background: linear-gradient(135deg, #E8A4C0, #F9D0DE); }
-    .gallery-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(45,27,46,0);
-      display: flex; align-items: center; justify-content: center;
-      transition: background 0.3s;
-    }
-    .gallery-item:hover .gallery-overlay { background: rgba(45,27,46,0.4); }
-    .gallery-overlay-icon {
-      opacity: 0;
-      color: white;
-      font-size: 1.5rem;
-      transition: opacity 0.3s;
-    }
-    .gallery-item:hover .gallery-overlay-icon { opacity: 1; }
-    .gallery-note {
-      text-align: center;
-      margin-top: 24px;
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.4);
-    }
-    .gallery-note a { color: var(--gold); text-decoration: none; }
+  /* ===== TESTIMONIALS ===== */
+  #testimonials{background:var(--blush);}
+  .t-rail{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;max-width:1120px;margin:0 auto;padding-bottom:6px;}
+  .t-rail::-webkit-scrollbar{display:none;}
+  .t-card{scroll-snap-align:center;flex:0 0 min(420px,86vw);background:var(--white);border-radius:var(--radius-md);padding:34px 30px;box-shadow:0 12px 34px rgba(67,13,41,.08);}
+  .t-quote{width:30px;height:30px;color:var(--blush-deep);margin-bottom:10px;}
+  .t-stars{display:flex;gap:2px;color:var(--gold);margin-bottom:14px;}
+  .t-stars .icon{width:15px;height:15px;}
+  .t-text{font-style:italic;font-size:.92rem;line-height:1.85;color:var(--text);margin-bottom:22px;}
+  .t-author{display:flex;align-items:center;gap:12px;}
+  .t-avatar{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:.92rem;flex-shrink:0;}
+  .t-name{font-size:.85rem;font-weight:600;color:var(--wine);}
+  .t-role{font-size:.72rem;color:var(--muted);}
+  .t-dots{display:flex;justify-content:center;gap:8px;margin-top:28px;}
+  .t-dots button{width:8px;height:8px;border-radius:50%;border:none;background:var(--blush-deep);cursor:pointer;transition:width .3s var(--ease),background .3s var(--ease);padding:0;}
+  .t-dots button.active{width:26px;background:var(--rose);border-radius:6px;}
 
-    /* ── VIDEOS ── */
-    #videos { background: var(--white); }
-    .videos-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .video-card {
-      border-radius: 16px;
-      overflow: hidden;
-      background: var(--cream);
-      box-shadow: 0 4px 20px rgba(45,27,46,0.06);
-    }
-    .video-embed {
-      position: relative;
-      padding-bottom: 56.25%;
-      height: 0;
-      overflow: hidden;
-    }
-    .video-embed iframe {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      border: none;
-    }
-    .video-embed-placeholder {
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: linear-gradient(135deg, #2D1B2E, #4A2040);
-      display: flex; align-items: center; justify-content: center;
-      color: white; font-size: 2rem;
-      cursor: pointer;
-    }
-    .video-info {
-      padding: 16px 20px;
-    }
-    .video-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1rem;
-      color: var(--dark);
-      margin-bottom: 4px;
-    }
-    .video-date { font-size: 0.75rem; color: var(--gray); }
+  /* ===== INSTAGRAM STRIP ===== */
+  #ig{background:linear-gradient(135deg,var(--gold-light),var(--blush));text-align:center;padding:70px 5%;}
+  .ig-head{max-width:1120px;margin:0 auto 26px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;text-align:left;}
+  .ig-head .script{font-size:1.7rem;color:var(--rose-deep);display:block;}
+  .ig-head .handle{font-size:.8rem;color:var(--muted);}
+  .ig-rail{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;max-width:1120px;margin:0 auto;padding-bottom:4px;}
+  .ig-rail::-webkit-scrollbar{display:none;}
+  .ig-thumb{scroll-snap-align:start;flex:0 0 auto;width:108px;height:108px;border-radius:16px;overflow:hidden;position:relative;background:rgba(67,13,41,.06);}
+  .ig-thumb img{width:100%;height:100%;object-fit:cover;}
+  .ig-thumb .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--gold);opacity:.5;}
 
+  /* ===== CTA STRIP ===== */
+  #cta{background:linear-gradient(120deg,var(--wine),var(--rose-deep));padding:54px 5%;}
+  .cta-inner{max-width:1080px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;}
+  .cta-left{display:flex;align-items:center;gap:18px;}
+  .cta-icon{width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .cta-icon .icon{width:25px;height:25px;color:#fff;}
+  .cta-left h3{font-family:'Playfair Display',serif;font-size:1.3rem;color:#fff;margin-bottom:4px;}
+  .cta-left p{font-size:.82rem;color:rgba(255,255,255,.65);}
+  .cta-buttons{display:flex;gap:12px;flex-wrap:wrap;}
 
-    /* ── TESTIMONIALS ── */
-    #testimonials { background: var(--cream); }
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .testimonial-card {
-      background: var(--white);
-      border-radius: 20px;
-      padding: 32px 28px;
-      position: relative;
-    }
-    .testimonial-quote {
-      font-size: 3rem;
-      color: var(--rose-light);
-      font-family: 'Playfair Display', serif;
-      line-height: 1;
-      margin-bottom: 12px;
-    }
-    .testimonial-text {
-      font-size: 0.88rem;
-      color: var(--gray);
-      line-height: 1.8;
-      margin-bottom: 20px;
-      font-style: italic;
-    }
-    .testimonial-stars {
-      color: var(--gold);
-      font-size: 0.9rem;
-      margin-bottom: 14px;
-    }
-    .testimonial-author { display: flex; align-items: center; gap: 12px; }
-    .testimonial-avatar {
-      width: 44px; height: 44px;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 600;
-      font-size: 0.9rem;
-      flex-shrink: 0;
-    }
-    .av-1 { background: #F9E0EC; color: var(--rose); }
-    .av-2 { background: #F5ECD9; color: var(--gold); }
-    .av-3 { background: #EAD5F5; color: #7A3080; }
-    .testimonial-name { font-size: 0.85rem; font-weight: 600; color: var(--dark); }
-    .testimonial-role { font-size: 0.72rem; color: var(--gray); }
+  /* ===== CONTACT ===== */
+  #contact{background:linear-gradient(170deg,var(--ink) 0%, var(--wine) 100%);color:#fff;}
+  .contact-grid{display:grid;grid-template-columns:1fr;gap:44px;max-width:1100px;margin:0 auto;}
+  .contact-info h3{font-family:'Playfair Display',serif;font-size:1.4rem;margin-bottom:14px;}
+  .contact-info > p{font-size:.86rem;color:rgba(255,255,255,.55);line-height:1.9;margin-bottom:28px;}
+  .contact-items{display:flex;flex-direction:column;gap:16px;}
+  .contact-item{display:flex;align-items:center;gap:14px;text-decoration:none;color:inherit;}
+  .contact-item-icon{width:46px;height:46px;border-radius:13px;background:rgba(255,255,255,.07);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .contact-item-icon .icon{width:19px;height:19px;color:var(--gold);}
+  .contact-item .label{font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:2px;}
+  .contact-item .value{font-size:.86rem;color:rgba(255,255,255,.88);}
 
-    /* ── CONTACT ── */
-    #contact {
-      background: linear-gradient(160deg, var(--dark-mid) 0%, var(--dark) 100%);
-      color: white;
-    }
-    #contact .section-title { color: white; }
-    #contact .section-divider { background: linear-gradient(to right, var(--rose), var(--gold)); }
+  .contact-form-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius-lg);padding:32px 26px;}
+  .form-row-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .field{margin-bottom:17px;}
+  .field label{display:block;font-size:.68rem;letter-spacing:1.4px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:8px;}
+  .field input,.field select,.field textarea{
+    width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.13);border-radius:12px;
+    padding:13px 16px;font-size:.86rem;color:#fff;font-family:inherit;outline:none;transition:border-color .25s, background .25s;
+  }
+  .field input::placeholder,.field textarea::placeholder{color:rgba(255,255,255,.28);}
+  .field select option{background:var(--wine);color:#fff;}
+  .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--gold);background:rgba(255,255,255,.09);}
+  .field textarea{resize:vertical;min-height:100px;}
+  #form-status{font-size:.82rem;margin-top:12px;padding:12px 16px;border-radius:12px;display:none;align-items:center;gap:8px;}
+  #form-status.success{background:rgba(37,211,102,.15);color:#9BFFB8;display:flex;}
+  #form-status.error{background:rgba(255,100,100,.15);color:#FFB3B3;display:flex;}
+  .submit-spinner{width:15px;height:15px;border-radius:50%;border:2px solid rgba(255,255,255,.4);border-top-color:#fff;animation:spin .7s linear infinite;display:none;}
+  .submitting .submit-spinner{display:inline-block;}
 
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.4fr;
-      gap: 60px;
-      max-width: 1100px;
-      margin: 0 auto;
-      align-items: start;
-    }
-    .contact-info h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      margin-bottom: 16px;
-      color: white;
-    }
-    .contact-info p {
-      font-size: 0.85rem;
-      color: rgba(255,255,255,0.6);
-      line-height: 1.9;
-      margin-bottom: 30px;
-    }
-    .contact-items { display: flex; flex-direction: column; gap: 16px; }
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-    .contact-item-icon {
-      width: 44px; height: 44px;
-      border-radius: 12px;
-      background: rgba(255,255,255,0.07);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.1rem;
-      flex-shrink: 0;
-    }
-    .contact-item-text .label {
-      font-size: 0.65rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 2px;
-    }
-    .contact-item-text .value {
-      font-size: 0.85rem;
-      color: rgba(255,255,255,0.85);
-    }
-    .contact-item-text a { color: rgba(255,255,255,0.85); text-decoration: none; }
-    .contact-item-text a:hover { color: var(--gold); }
+  /* ===== FOOTER ===== */
+  footer{background:var(--ink);padding:56px 5% 26px;}
+  .footer-grid{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:38px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.07);}
+  .footer-brand{display:flex;flex-direction:column;gap:14px;}
+  .footer-logo{display:flex;align-items:center;gap:9px;}
+  .footer-logo .icon{width:22px;height:22px;color:var(--gold);}
+  .footer-logo span{font-family:'Playfair Display',serif;font-size:1.2rem;color:#fff;letter-spacing:1px;}
+  .footer-tag{font-size:.78rem;color:rgba(255,255,255,.4);max-width:240px;line-height:1.7;}
+  .footer-socials{display:flex;gap:10px;margin-top:6px;}
+  .footer-social{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);text-decoration:none;transition:all .3s;}
+  .footer-social .icon{width:17px;height:17px;}
+  .footer-social:hover{background:var(--rose);color:#fff;transform:translateY(-3px);}
+  .footer-col h4{font-family:'Playfair Display',serif;font-size:1rem;color:var(--gold);margin-bottom:16px;}
+  .footer-col ul{display:flex;flex-direction:column;gap:11px;}
+  .footer-col a{font-size:.82rem;color:rgba(255,255,255,.5);text-decoration:none;}
+  .footer-col a:hover{color:var(--gold);}
+  .footer-col .contact-line{display:flex;align-items:flex-start;gap:9px;font-size:.82rem;color:rgba(255,255,255,.5);}
+  .footer-col .contact-line .icon{width:15px;height:15px;color:var(--gold);margin-top:2px;flex-shrink:0;}
+  .footer-bottom{max-width:1120px;margin:22px auto 0;text-align:center;font-size:.72rem;color:rgba(255,255,255,.25);}
 
-    .contact-form-card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 24px;
-      padding: 36px 32px;
-    }
-    .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .form-group { margin-bottom: 16px; }
-    .form-group label {
-      display: block;
-      font-size: 0.72rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.5);
-      margin-bottom: 8px;
-    }
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      width: 100%;
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 10px;
-      padding: 13px 16px;
-      font-size: 0.85rem;
-      color: white;
-      font-family: 'Poppins', sans-serif;
-      outline: none;
-      transition: border-color 0.3s;
-    }
-    .form-group input::placeholder,
-    .form-group textarea::placeholder { color: rgba(255,255,255,0.3); }
-    .form-group select option { background: var(--dark); color: white; }
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus { border-color: var(--rose); }
-    .form-group textarea { resize: vertical; min-height: 110px; }
-    #form-status {
-      font-size: 0.82rem;
-      margin-top: 12px;
-      padding: 10px 16px;
-      border-radius: 10px;
-      display: none;
-    }
-    #form-status.success { background: rgba(37,211,102,0.15); color: #7EFFA3; display: block; }
-    #form-status.error { background: rgba(255,100,100,0.15); color: #FFB3B3; display: block; }
+  /* ===== FLOATING / STICKY ===== */
+  #wa-float{position:fixed;bottom:30px;right:26px;width:58px;height:58px;background:var(--wa);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;box-shadow:0 8px 26px rgba(37,211,102,.4);z-index:900;animation:pulseRing 2.8s ease-in-out infinite;}
+  #wa-float .icon{width:26px;height:26px;}
+  #wa-float:hover{transform:scale(1.08);}
 
-    /* ── FOOTER ── */
-    footer {
-      background: #100610;
-      padding: 48px 5% 28px;
-      text-align: center;
-    }
-    .footer-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      color: var(--gold);
-      letter-spacing: 3px;
-      margin-bottom: 16px;
-    }
-    .footer-tagline {
-      font-size: 0.75rem;
-      color: rgba(255,255,255,0.3);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 28px;
-    }
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      gap: 24px;
-      list-style: none;
-      margin-bottom: 28px;
-      flex-wrap: wrap;
-    }
-    .footer-links a {
-      font-size: 0.78rem;
-      color: rgba(255,255,255,0.4);
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    .footer-links a:hover { color: var(--gold); }
-    .footer-socials {
-      display: flex;
-      justify-content: center;
-      gap: 14px;
-      margin-bottom: 28px;
-    }
-    .footer-social {
-      width: 40px; height: 40px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.06);
-      display: flex; align-items: center; justify-content: center;
-      color: rgba(255,255,255,0.5);
-      text-decoration: none;
-      font-size: 1rem;
-      transition: all 0.3s;
-    }
-    .footer-social:hover { background: var(--rose); color: white; }
-    .footer-copy {
-      font-size: 0.72rem;
-      color: rgba(255,255,255,0.2);
-      border-top: 1px solid rgba(255,255,255,0.06);
-      padding-top: 24px;
-    }
+  #mobile-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:950;background:var(--white);box-shadow:0 -8px 30px rgba(67,13,41,.14);padding:10px 14px calc(10px + env(safe-area-inset-bottom));gap:10px;}
+  #mobile-bar a{flex:1;}
+  #mobile-bar .btn{width:100%;padding:13px 10px;font-size:.68rem;}
 
-    /* ── WHATSAPP FLOAT ── */
-    #wa-float {
-      position: fixed;
-      bottom: 32px;
-      right: 28px;
-      width: 58px; height: 58px;
-      background: var(--wa-green);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      text-decoration: none;
-      color: white;
-      font-size: 1.6rem;
-      box-shadow: 0 6px 24px rgba(37,211,102,0.4);
-      z-index: 999;
-      transition: all 0.3s;
-      animation: waPulse 3s ease-in-out infinite;
-    }
-    #wa-float:hover { transform: scale(1.1); box-shadow: 0 10px 32px rgba(37,211,102,0.5); }
-    @keyframes waPulse {
-      0%, 100% { box-shadow: 0 6px 24px rgba(37,211,102,0.4); }
-      50% { box-shadow: 0 6px 40px rgba(37,211,102,0.6); }
-    }
-    .wa-tooltip {
-      position: absolute;
-      right: 66px;
-      white-space: nowrap;
-      background: white;
-      color: var(--dark);
-      font-size: 0.75rem;
-      padding: 8px 14px;
-      border-radius: 10px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
-      opacity: 0;
-      transform: translateX(6px);
-      pointer-events: none;
-      transition: all 0.3s;
-    }
-    #wa-float:hover .wa-tooltip { opacity: 1; transform: translateX(0); }
-
-    /* ── MOBILE ── */
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .hamburger { display: flex; }
-      .nav-links.open {
-        display: flex;
-        flex-direction: column;
-        position: fixed;
-        top: 0; left: 0; right: 0; bottom: 0;
-        background: var(--dark);
-        align-items: center;
-        justify-content: center;
-        gap: 2.5rem;
-        z-index: 999;
-      }
-      .nav-links.open a { font-size: 1.2rem; color: white; }
-      .about-grid { grid-template-columns: 1fr; gap: 40px; }
-      .about-image-wrap { order: -1; }
-      .gallery-grid { grid-template-columns: 1fr 1fr; }
-      .gallery-item:nth-child(1) { grid-row: unset; }
-      .gallery-item:nth-child(5) { grid-column: unset; }
-      .contact-grid { grid-template-columns: 1fr; gap: 40px; }
-      .form-row-2 { grid-template-columns: 1fr; }
-      .youtube-add-row { flex-direction: column; }
-    }
-
-
-    /* ── TYPING ANIMATION ── */
-    .typed-cursor { display: inline; color: var(--gold); animation: blink 1s step-end infinite; }
-    @keyframes blink { 50% { opacity: 0; } }
-  </style>
+  /* ===== RESPONSIVE ===== */
+  @media (min-width:760px){
+    .hero-buttons,.hero-content{text-align:left;}
+    .hero-content{text-align:left;}
+    .hero-subtitle{margin:0 0 32px;}
+    .hero-buttons{justify-content:flex-start;}
+    .hero-social{justify-content:flex-start;}
+    .stats-bar{grid-template-columns:repeat(4,1fr);}
+    .stat-item:nth-child(2n){border-right:1px solid rgba(67,13,41,.06);}
+    .stat-item:nth-child(4n){border-right:none;}
+    .about-grid{grid-template-columns:.85fr 1fr;}
+    .about-text .section-header{margin-bottom:22px;}
+    .services-grid{grid-template-columns:repeat(2,1fr);}
+    .form-row-2{grid-template-columns:1fr 1fr;}
+  }
+  @media (min-width:1000px){
+    .hero-grid{grid-template-columns:.85fr 1fr;text-align:left;}
+    .hero-eyebrow,.hero-title,.hero-subtitle{margin-left:0;margin-right:0;}
+    .services-grid{grid-template-columns:repeat(3,1fr);}
+    .contact-grid{grid-template-columns:.9fr 1.3fr;}
+    .footer-grid{grid-template-columns:1.3fr 1fr 1fr 1fr;}
+  }
+  @media (max-width:759px){
+    .nav-links{display:none;}
+    .hamburger{display:flex;}
+    section{padding:74px 6%;}
+    #hero{padding-top:108px;}
+    #stats-wrap{margin-top:-40px;}
+    .stat-item{padding:20px 14px;}
+    body{padding-bottom:74px;}
+    #mobile-bar{display:flex;}
+    #wa-float{display:none;}
+    .about-quote-badge{left:0;right:0;margin:0 auto;bottom:-22px;max-width:88%;text-align:center;}
+    .about-years{right:6px;}
+  }
+  @media (max-width:420px){
+    .gallery-card{width:208px;}
+    .video-card{width:166px;}
+  }
+</style>
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <nav id="navbar" role="navigation" aria-label="Main navigation">
-    <a href="#" class="nav-logo">Delight Beauty Empire</a>
-    <ul class="nav-links" id="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#gallery">Gallery</a></li>
-      <li><a href="#videos">Videos</a></li>
-      <li><a href="#contact" class="nav-book-btn">Book Now</a></li>
-    </ul>
-    <div class="hamburger" id="hamburger" aria-label="Toggle menu" role="button" tabindex="0">
-      <span></span><span></span><span></span>
-    </div>
-  </nav>
+<!-- ICON SPRITE -->
+<svg style="display:none">
+  <symbol id="i-crown" viewBox="0 0 24 24"><path d="M4 18h16l-1.4-7.6-3.6 3-3-5.6-3 5.6-3.6-3z"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 9.5h18M8 3v4M16 3v4"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-12.2 7.5L3 21l1.9-5.7A8.4 8.4 0 1 1 21 11.5z"/></symbol>
+  <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path class="icon-fill" d="M8 5v14l11-7-11-7z"/></symbol>
+  <symbol id="i-zoom" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="8" cy="9" r="3"/><path d="M2.5 19.5a5.5 5.5 0 0 1 11 0"/><circle cx="17" cy="8" r="2.4"/><path d="M14.7 19.5a4.5 4.5 0 0 1 7.8 0"/></symbol>
+  <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M7 4h10v4a5 5 0 0 1-10 0V4z"/><path d="M7 5H4.5A2.5 2.5 0 0 0 7 7.5M17 5h2.5A2.5 2.5 0 0 1 17 7.5"/><path d="M9.5 19h5M12 13.5V19"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></symbol>
+  <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></symbol>
+  <symbol id="i-ring" viewBox="0 0 24 24"><circle cx="12" cy="15" r="6"/><path d="M12 9l-2.4-5h4.8z"/></symbol>
+  <symbol id="i-scissors" viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.3"/><circle cx="6" cy="18" r="2.3"/><path d="M20 5L8 13.2M20 19L8 10.8"/></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M5 19c0-8 5-14 14-14 0 9-6 14-14 14z"/><path d="M5 19c2-3 5-6 9-8"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="i-gem" viewBox="0 0 24 24"><path d="M3 9l4-6h10l4 6-9 12L3 9z"/><path d="M3 9h18M9 3l3 6 3-6M7.5 9L12 21l4.5-12"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h3l1.5 4-2 1.5a12 12 0 0 0 6 6l1.5-2 4 1.5v3a2 2 0 0 1-2.2 2A17 17 0 0 1 3 6.2 2 2 0 0 1 5 4z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 22s7-7.2 7-12.5A7 7 0 0 0 5 9.5C5 14.8 12 22 12 22z"/><circle cx="12" cy="9.5" r="2.4"/></symbol>
+  <symbol id="i-camera" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2.5"/><path d="M8 7l1.4-3h5.2L16 7"/><circle cx="12" cy="13.4" r="3.8"/></symbol>
+  <symbol id="i-film" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 5v14M17 5v14M3 10h4M17 10h4M3 15h4M17 15h4"/></symbol>
+  <symbol id="i-chev-l" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></symbol>
+  <symbol id="i-chev-r" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path class="icon-fill" d="M12 2.5l2.9 6 6.6.7-4.9 4.5 1.3 6.5L12 17l-5.9 3.2 1.3-6.5L2.5 9.2l6.6-.7z"/></symbol>
+  <symbol id="i-quote" viewBox="0 0 40 32"><path class="icon-fill" d="M0 18C0 8 6 1 16 0v6C9 7 6 11 6 16h10v16H0V18zm22 0C22 8 28 1 38 0v6c-7 1-10 5-10 10h10v16H22V18z"/></symbol>
+</svg>
 
-  <!-- HERO -->
-  <section id="hero" aria-label="Hero">
-    <div class="hero-bg-circles" aria-hidden="true">
-      <div class="circle circle-1"></div>
-      <div class="circle circle-2"></div>
-      <div class="circle circle-3"></div>
-    </div>
-    <div class="hero-content">
-      <div class="hero-badge">✦ Delight Beauty Empire ✦</div>
-      <h1 class="hero-title">
-        Where Beauty Meets<br>
-        <em id="typed-text">Elegance &amp; Grace</em>
-      </h1>
-      <p class="hero-subtitle">
-        Professional beauty services crafted to make you look and feel your absolute best.
-        Bridal, editorial, everyday glam — your transformation starts here.
-      </p>
-      <div class="hero-buttons">
-        <a href="#contact" class="btn btn-rose">✨ Book a Session</a>
-        <a href="https://wa.me/2349033660736?text=Hello%20Delight%20Beauty%20Empire!%20I'd%20like%20to%20book%20a%20session." class="btn btn-wa" target="_blank" rel="noopener">
-          💬 Chat on WhatsApp
-        </a>
-        <a href="#gallery" class="btn btn-outline">View Our Work</a>
-      </div>
-    </div>
-    <div class="hero-scroll" aria-hidden="true">
-      <div class="hero-scroll-line"></div>
-      <span>Scroll</span>
-    </div>
-  </section>
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">
+    <svg class="icon"><use href="#i-crown"/></svg>
+    <span class="nav-logo-text"><span class="top">Delight</span><span class="bottom">Beauty Empire</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#videos">Videos</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+  </ul>
+  <div class="nav-cta">
+    <a href="#contact" class="btn btn-primary btn-sm">
+      <svg class="icon"><use href="#i-calendar"/></svg> Book Now
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <svg class="icon icon-menu"><use href="#i-menu"/></svg>
+      <svg class="icon icon-close"><use href="#i-close"/></svg>
+    </button>
+  </div>
+</nav>
 
-  <!-- ABOUT -->
-  <section id="about" aria-label="About us">
-    <div class="about-grid">
-      <div class="about-image-wrap" data-aos="fade-right">
-        <div class="about-image-placeholder">
-          <!-- Replace with your actual photo: <img src="assets/images/about.jpg" alt="Delight Beauty Empire Studio" /> -->
-          💄
+<div class="mobile-nav" id="mobile-nav">
+  <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu"><svg class="icon"><use href="#i-close"/></svg></button>
+  <a href="#hero">Home</a>
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#videos">Videos</a>
+  <a href="#testimonials">Reviews</a>
+  <a href="#contact" class="btn btn-primary mobile-nav-cta"><svg class="icon"><use href="#i-calendar"/></svg> Book Now</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-blob hero-blob-1" aria-hidden="true"></div>
+  <div class="hero-blob hero-blob-2" aria-hidden="true"></div>
+  <div class="hero-grid">
+    <div class="hero-visual-wrap" data-reveal="zoom">
+      <div class="hero-visual-frame">
+        <div class="hero-visual-art" id="hero-art">
+          <svg class="icon"><use href="#i-crown"/></svg>
+          <div class="hero-monogram">Delight</div>
+          <div class="hero-monogram-sub">Beauty Empire</div>
+          <div class="hero-visual-deco" aria-hidden="true"></div>
         </div>
-        <div class="about-badge">
+        <div class="hero-badge">
           <span class="num">5+</span>
           <span class="txt">Years of<br>Excellence</span>
         </div>
       </div>
-      <div class="about-text" data-aos="fade-left" data-aos-delay="100">
-        <div class="section-header">
-          <span class="section-label">Our Story</span>
-          <h2 class="section-title">Passion for <em>Beauty</em></h2>
-          <div class="section-divider"></div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-eyebrow" data-reveal="up">Where Beauty Meets Elegance</p>
+      <h1 class="hero-title" data-reveal="up" style="--d:.08s">Delight Beauty<br><span class="accent" id="typed-text">Empire</span></h1>
+      <p class="hero-subtitle" data-reveal="up" style="--d:.16s">Professional beauty services crafted to make you look and feel your absolute best — bridal, editorial and everyday glam, your transformation starts here.</p>
+      <div class="hero-buttons" data-reveal="up" style="--d:.22s">
+        <a href="#contact" class="btn btn-primary"><svg class="icon"><use href="#i-calendar"/></svg>Book a Session</a>
+        <a href="https://wa.me/2349033660736?text=Hello%20Delight%20Beauty%20Empire!%20I'd%20like%20to%20book%20a%20session." class="btn btn-wa" target="_blank" rel="noopener"><svg class="icon"><use href="#i-chat"/></svg>Chat on WhatsApp</a>
+      </div>
+      <div class="hero-social" data-reveal="up" style="--d:.28s">
+        <div class="avatar-stack">
+          <span class="av-1">AO</span><span class="av-2">FN</span><span class="av-3">CB</span>
         </div>
-        <p>
-          Welcome to Delight Beauty Empire — where every client is royalty. We are a
-          premium beauty studio dedicated to bringing out your most radiant self through
-          expert techniques, quality products, and genuine care.
-        </p>
-        <p>
-          From intimate bridal preparations to bold editorial looks, our team of
-          skilled artists transforms your vision into reality. We believe beauty is
-          not one-size-fits-all — it's deeply personal, and we honour that.
-        </p>
-        <div class="about-features">
-          <div class="about-feature"><div class="dot"></div>Certified Beauty Artists</div>
-          <div class="about-feature"><div class="dot"></div>Premium Products Only</div>
-          <div class="about-feature"><div class="dot"></div>Bridal Specialists</div>
-          <div class="about-feature"><div class="dot"></div>Home Service Available</div>
-          <div class="about-feature"><div class="dot"></div>100% Client Satisfaction</div>
-          <div class="about-feature"><div class="dot"></div>Hygiene First Always</div>
+        <div class="hero-rating">
+          <span class="stars">
+            <svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg>
+          </span>
+          <span class="label">200+ Happy Clients</span>
         </div>
-        <a href="#contact" class="btn btn-rose" style="margin-top: 10px;">Book a Session</a>
       </div>
     </div>
-  </section>
+  </div>
+  <div class="hero-scroll-cue" aria-hidden="true"><div class="line"></div><span style="font-size:.6rem;letter-spacing:2px;text-transform:uppercase;">Scroll</span></div>
+</section>
 
-  <!-- SERVICES -->
-  <section id="services" aria-label="Services">
-    <div class="section-header" data-aos="fade-up">
-      <span class="section-label">What We Offer</span>
-      <h2 class="section-title">Our <em>Services</em></h2>
-      <div class="section-divider"></div>
+<!-- STATS -->
+<div id="stats-wrap">
+  <div class="stats-bar" data-reveal="up">
+    <div class="stat-item">
+      <div class="stat-icon"><svg class="icon"><use href="#i-users"/></svg></div>
+      <div><span class="stat-num" data-target="200" data-suffix="+">0</span><div class="stat-label">Happy Clients</div></div>
     </div>
-    <div class="services-grid">
-      <div class="service-card" data-aos="fade-up" data-aos-delay="0">
-        <div class="service-icon">💍</div>
+    <div class="stat-item">
+      <div class="stat-icon"><svg class="icon"><use href="#i-trophy"/></svg></div>
+      <div><span class="stat-num" data-target="5" data-suffix="+">0</span><div class="stat-label">Years Experience</div></div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-icon"><svg class="icon"><use href="#i-shield"/></svg></div>
+      <div><span class="stat-num" data-target="100" data-suffix="%">0</span><div class="stat-label">Satisfaction</div></div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-icon"><svg class="icon"><use href="#i-sparkle"/></svg></div>
+      <div><span class="stat-num" data-target="6" data-suffix="+">0</span><div class="stat-label">Beauty Services</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-visual" data-reveal="left">
+      <div class="about-years"><span class="num">5+</span><span class="txt">Years</span></div>
+      <div class="about-visual-art" id="about-art">
+        <svg class="icon about-flourish" viewBox="0 0 60 80"><path d="M30 78C30 50 36 30 50 14M40 30c6 3 8 10 4 16M40 33c-6 2-10 8-7 15M22 58c6-3 13-3 16 2M27 44c6 0 10 3 10 9"/></svg>
+      </div>
+      <div class="about-quote-badge">
+        <svg class="icon icon-fill"><use href="#i-quote"/></svg>
+        <p>We bring out the beauty in every detail</p>
+      </div>
+    </div>
+    <div class="about-text" data-reveal="right">
+      <div class="section-header">
+        <span class="section-label">Our Story</span>
+        <h2 class="section-title">More Than Beauty,<br>It's An <em>Experience</em></h2>
+      </div>
+      <p class="lede">At Delight Beauty Empire, every client is treated like royalty. We're a premium beauty studio dedicated to bringing out your most radiant self through expert technique, quality products and genuine care — from intimate bridal preparation to bold editorial looks.</p>
+      <div class="about-features">
+        <div class="about-feature"><span class="check"><svg class="icon"><use href="#i-check"/></svg></span>Certified Beauty Artists</div>
+        <div class="about-feature"><span class="check"><svg class="icon"><use href="#i-check"/></svg></span>Premium Products Only</div>
+        <div class="about-feature"><span class="check"><svg class="icon"><use href="#i-check"/></svg></span>Bridal Specialists</div>
+        <div class="about-feature"><span class="check"><svg class="icon"><use href="#i-check"/></svg></span>Home Service Available</div>
+        <div class="about-feature"><span class="check"><svg class="icon"><use href="#i-check"/></svg></span>Hygiene First, Always</div>
+        <div class="about-feature"><span class="check"><svg class="icon"><use href="#i-check"/></svg></span>100% Client Satisfaction</div>
+      </div>
+      <a href="#services" class="btn btn-ghost-dark">View Our Services<svg class="icon"><use href="#i-arrow-right"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-header" data-reveal="up">
+    <span class="section-label">What We Offer</span>
+    <h2 class="section-title">Beauty Solutions <em>Just For You</em></h2>
+    <p class="section-sub">Tap any service to jump straight to booking — we'll pre-fill it for you.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card" data-reveal="up">
+      <div class="service-media sm-1"><svg class="icon"><use href="#i-ring"/></svg><div class="service-badge"><svg class="icon"><use href="#i-ring"/></svg></div></div>
+      <div class="service-body">
         <div class="service-name">Bridal Makeup</div>
-        <div class="service-desc">Look flawless on your special day. We offer full bridal glam, trial sessions, and touch-up kits.</div>
-        <div class="service-price">From ₦35,000</div>
+        <p class="service-desc">Full bridal glam with trial sessions and a touch-up kit for your big day.</p>
+        <div class="service-foot">
+          <div class="service-price"><small>Starting from</small>&#x20A6;35,000</div>
+          <a href="#contact" class="link-arrow" data-service-select="Bridal Makeup">Book<svg class="icon"><use href="#i-arrow-right"/></svg></a>
+        </div>
       </div>
-      <div class="service-card" data-aos="fade-up" data-aos-delay="80">
-        <div class="service-icon">✂️</div>
+    </div>
+    <div class="service-card" data-reveal="up" style="--d:.06s">
+      <div class="service-media sm-2"><svg class="icon"><use href="#i-scissors"/></svg><div class="service-badge"><svg class="icon"><use href="#i-scissors"/></svg></div></div>
+      <div class="service-body">
         <div class="service-name">Hair Styling</div>
-        <div class="service-desc">From sleek and straight to full curls — we handle braids, weaves, wigs, and natural styles.</div>
-        <div class="service-price">From ₦15,000</div>
+        <p class="service-desc">Braids, weaves, wigs and natural styles — sleek, straight or full curls.</p>
+        <div class="service-foot">
+          <div class="service-price"><small>Starting from</small>&#x20A6;15,000</div>
+          <a href="#contact" class="link-arrow" data-service-select="Hair Styling">Book<svg class="icon"><use href="#i-arrow-right"/></svg></a>
+        </div>
       </div>
-      <div class="service-card" data-aos="fade-up" data-aos-delay="160">
-        <div class="service-icon">✨</div>
+    </div>
+    <div class="service-card" data-reveal="up" style="--d:.12s">
+      <div class="service-media sm-4"><svg class="icon"><use href="#i-gem"/></svg><div class="service-badge"><svg class="icon"><use href="#i-gem"/></svg></div></div>
+      <div class="service-body">
         <div class="service-name">Glam Makeup</div>
-        <div class="service-desc">Everyday glam, events, photo shoots, and special occasions — bold or natural, we deliver.</div>
-        <div class="service-price">From ₦12,000</div>
+        <p class="service-desc">Everyday glam, events and photo-shoot ready looks — bold or natural.</p>
+        <div class="service-foot">
+          <div class="service-price"><small>Starting from</small>&#x20A6;12,000</div>
+          <a href="#contact" class="link-arrow" data-service-select="Glam Makeup">Book<svg class="icon"><use href="#i-arrow-right"/></svg></a>
+        </div>
       </div>
-      <div class="service-card" data-aos="fade-up" data-aos-delay="0">
-        <div class="service-icon">💎</div>
+    </div>
+    <div class="service-card" data-reveal="up">
+      <div class="service-media sm-3"><svg class="icon"><use href="#i-eye"/></svg><div class="service-badge"><svg class="icon"><use href="#i-eye"/></svg></div></div>
+      <div class="service-body">
         <div class="service-name">Lash Extensions</div>
-        <div class="service-desc">Classic, hybrid, or volume lash sets that last and look naturally gorgeous.</div>
-        <div class="service-price">From ₦18,000</div>
+        <p class="service-desc">Classic, hybrid or volume sets that last and look naturally gorgeous.</p>
+        <div class="service-foot">
+          <div class="service-price"><small>Starting from</small>&#x20A6;18,000</div>
+          <a href="#contact" class="link-arrow" data-service-select="Lash Extensions">Book<svg class="icon"><use href="#i-arrow-right"/></svg></a>
+        </div>
       </div>
-      <div class="service-card" data-aos="fade-up" data-aos-delay="80">
-        <div class="service-icon">💅</div>
+    </div>
+    <div class="service-card" data-reveal="up" style="--d:.06s">
+      <div class="service-media sm-6"><svg class="icon"><use href="#i-sparkle"/></svg><div class="service-badge"><svg class="icon"><use href="#i-sparkle"/></svg></div></div>
+      <div class="service-body">
         <div class="service-name">Nail Art</div>
-        <div class="service-desc">Gel, acrylic, ombre, 3D art — your nails deserve the best design and finish.</div>
-        <div class="service-price">From ₦8,000</div>
+        <p class="service-desc">Gel, acrylic, ombre and 3D art — your nails deserve the best finish.</p>
+        <div class="service-foot">
+          <div class="service-price"><small>Starting from</small>&#x20A6;8,000</div>
+          <a href="#contact" class="link-arrow" data-service-select="Nail Art">Book<svg class="icon"><use href="#i-arrow-right"/></svg></a>
+        </div>
       </div>
-      <div class="service-card" data-aos="fade-up" data-aos-delay="160">
-        <div class="service-icon">🌿</div>
+    </div>
+    <div class="service-card" data-reveal="up" style="--d:.12s">
+      <div class="service-media sm-5"><svg class="icon"><use href="#i-leaf"/></svg><div class="service-badge"><svg class="icon"><use href="#i-leaf"/></svg></div></div>
+      <div class="service-body">
         <div class="service-name">Skincare Facial</div>
-        <div class="service-desc">Deep cleanse, glow facials, and bespoke skincare treatments for your skin type.</div>
-        <div class="service-price">From ₦10,000</div>
+        <p class="service-desc">Deep cleanse, glow facials and bespoke treatments for your skin type.</p>
+        <div class="service-foot">
+          <div class="service-price"><small>Starting from</small>&#x20A6;10,000</div>
+          <a href="#contact" class="link-arrow" data-service-select="Skincare Facial">Book<svg class="icon"><use href="#i-arrow-right"/></svg></a>
+        </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- GALLERY -->
-  <section id="gallery" aria-label="Portfolio gallery">
-    <div class="section-header" data-aos="fade-up">
-      <span class="section-label">Our Work</span>
-      <h2 class="section-title" style="color:white;">The <em>Portfolio</em></h2>
-      <div class="section-divider"></div>
+<!-- GALLERY -->
+<section id="gallery" class="on-dark">
+  <div class="rail-header">
+    <div class="section-header" style="text-align:left;margin:0;max-width:520px;" data-reveal="up">
+      <span class="section-label" style="justify-content:flex-start;">Our Work</span>
+      <h2 class="section-title">The <em>Portfolio</em></h2>
     </div>
-    <div class="gallery-grid" id="gallery-grid">
-      <!-- Photos load automatically from assets/images/ on GitHub -->
-      <div class="gallery-item" data-aos="zoom-in" data-aos-delay="0">
-        <div class="gallery-placeholder gp-1">Bridal Glam</div>
-        <div class="gallery-overlay"><span class="gallery-overlay-icon">🔍</span></div>
-      </div>
-      <div class="gallery-item" data-aos="zoom-in" data-aos-delay="60">
-        <div class="gallery-placeholder gp-2">Editorial</div>
-        <div class="gallery-overlay"><span class="gallery-overlay-icon">🔍</span></div>
-      </div>
-      <div class="gallery-item" data-aos="zoom-in" data-aos-delay="120">
-        <div class="gallery-placeholder gp-3">Hair</div>
-        <div class="gallery-overlay"><span class="gallery-overlay-icon">🔍</span></div>
-      </div>
-      <div class="gallery-item" data-aos="zoom-in" data-aos-delay="180">
-        <div class="gallery-placeholder gp-4">Lashes</div>
-        <div class="gallery-overlay"><span class="gallery-overlay-icon">🔍</span></div>
-      </div>
-      <div class="gallery-item" data-aos="zoom-in" data-aos-delay="240">
-        <div class="gallery-placeholder gp-5" style="height:200px">Nails &amp; More</div>
-        <div class="gallery-overlay"><span class="gallery-overlay-icon">🔍</span></div>
-      </div>
-      <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300">
-        <div class="gallery-placeholder gp-6">Skincare</div>
-        <div class="gallery-overlay"><span class="gallery-overlay-icon">🔍</span></div>
-      </div>
+    <div class="rail-nav" id="gallery-nav">
+      <button data-dir="-1" aria-label="Previous photos"><svg class="icon"><use href="#i-chev-l"/></svg></button>
+      <button data-dir="1" aria-label="Next photos"><svg class="icon"><use href="#i-chev-r"/></svg></button>
     </div>
-    <p class="gallery-note" data-aos="fade-up">
-      Follow us on <a href="https://www.instagram.com/delightbeautyempire" target="_blank" rel="noopener">Instagram @delightbeautyempire</a> for daily looks ✨
-    </p>
+  </div>
+  <div class="rail" id="gallery-rail"></div>
+  <p class="gallery-note">Follow our daily looks on <a href="https://www.instagram.com/delightbeautyempire" target="_blank" rel="noopener">Instagram @delightbeautyempire</a></p>
 
-    <!-- Lightbox -->
-    <div id="lightbox" onclick="closeLightbox()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:9999;align-items:center;justify-content:center;flex-direction:column;gap:16px;">
-      <img id="lightbox-img" src="" alt="" style="max-width:92vw;max-height:85vh;border-radius:12px;object-fit:contain;" />
-      <button onclick="closeLightbox()" style="background:rgba(255,255,255,0.15);border:none;color:white;padding:10px 24px;border-radius:25px;font-size:0.85rem;cursor:pointer;">✕ Close</button>
-    </div>
-  </section>
+  <div id="lightbox" role="dialog" aria-modal="true">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close"><svg class="icon"><use href="#i-close"/></svg></button>
+    <img id="lightbox-img" src="" alt="" />
+    <p id="lightbox-cap"></p>
+  </div>
+</section>
 
-  <!-- VIDEOS -->
-  <section id="videos" aria-label="Video gallery">
-    <div class="section-header" data-aos="fade-up">
-      <span class="section-label">Watch Us Work</span>
+<!-- VIDEOS -->
+<section id="videos">
+  <div class="rail-header">
+    <div class="section-header" style="text-align:left;margin:0;max-width:520px;" data-reveal="up">
+      <span class="section-label" style="justify-content:flex-start;">Watch Us Work</span>
       <h2 class="section-title">Our <em>Videos</em></h2>
-      <div class="section-divider"></div>
     </div>
-
-    <div class="videos-grid" id="videos-grid"></div>
-
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section id="testimonials" aria-label="Testimonials">
-    <div class="section-header" data-aos="fade-up">
-      <span class="section-label">Happy Clients</span>
-      <h2 class="section-title">What They <em>Say</em></h2>
-      <div class="section-divider"></div>
+    <div class="rail-nav on-light" id="video-nav">
+      <button data-dir="-1" aria-label="Previous videos"><svg class="icon"><use href="#i-chev-l"/></svg></button>
+      <button data-dir="1" aria-label="Next videos"><svg class="icon"><use href="#i-chev-r"/></svg></button>
     </div>
-    <div class="testimonials-grid">
-      <div class="testimonial-card" data-aos="fade-up" data-aos-delay="0">
-        <div class="testimonial-quote">"</div>
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">I was absolutely glowing on my wedding day. Delight Beauty Empire made my vision come true and even better. Every guest was asking who did my makeup!</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar av-1">AO</div>
-          <div>
-            <div class="testimonial-name">Adaeze Okonkwo</div>
-            <div class="testimonial-role">Bride — Lagos</div>
-          </div>
+  </div>
+  <div class="rail" id="videos-rail"></div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="section-header" data-reveal="up">
+    <span class="section-label">Happy Clients</span>
+    <h2 class="section-title">What They <em>Say</em></h2>
+  </div>
+  <div class="t-rail" id="t-rail">
+    <div class="t-card">
+      <svg class="icon icon-fill t-quote"><use href="#i-quote"/></svg>
+      <div class="t-stars"><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg></div>
+      <p class="t-text">I was absolutely glowing on my wedding day. Delight Beauty Empire made my vision come true and even better. Every guest was asking who did my makeup!</p>
+      <div class="t-author"><div class="t-avatar av-1">AO</div><div><div class="t-name">Adaeze Okonkwo</div><div class="t-role">Bride — Lagos</div></div></div>
+    </div>
+    <div class="t-card">
+      <svg class="icon icon-fill t-quote"><use href="#i-quote"/></svg>
+      <div class="t-stars"><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg></div>
+      <p class="t-text">Best nail art I've ever had! She took her time, listened to exactly what I wanted and delivered something even more beautiful. Will always come back.</p>
+      <div class="t-author"><div class="t-avatar av-2">FN</div><div><div class="t-name">Fatima Nwosu</div><div class="t-role">Regular Client</div></div></div>
+    </div>
+    <div class="t-card">
+      <svg class="icon icon-fill t-quote"><use href="#i-quote"/></svg>
+      <div class="t-stars"><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg><svg class="icon icon-fill"><use href="#i-star"/></svg></div>
+      <p class="t-text">My lash extensions lasted weeks and looked so natural. The service was warm, professional, and the results were breathtaking. 100% recommended!</p>
+      <div class="t-author"><div class="t-avatar av-3">CB</div><div><div class="t-name">Chisom Bello</div><div class="t-role">Client — Abuja</div></div></div>
+    </div>
+  </div>
+  <div class="t-dots" id="t-dots"></div>
+</section>
+
+<!-- INSTAGRAM -->
+<section id="ig">
+  <div class="ig-head">
+    <div><span class="script">Follow Our Beauty Journey</span><div class="handle">@delightbeautyempire</div></div>
+    <a href="https://www.instagram.com/delightbeautyempire" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Follow Us</a>
+  </div>
+  <div class="ig-rail" id="ig-rail"></div>
+</section>
+
+<!-- CTA STRIP -->
+<section id="cta">
+  <div class="cta-inner">
+    <div class="cta-left">
+      <div class="cta-icon"><svg class="icon"><use href="#i-calendar"/></svg></div>
+      <div><h3>Ready to Glow?</h3><p>Book your appointment today and let's create your perfect look.</p></div>
+    </div>
+    <div class="cta-buttons">
+      <a href="https://wa.me/2349033660736" target="_blank" rel="noopener" class="btn btn-wa"><svg class="icon"><use href="#i-chat"/></svg>Book on WhatsApp</a>
+      <a href="tel:+2349033660736" class="btn btn-outline"><svg class="icon"><use href="#i-phone"/></svg>Call Us Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-header on-dark" data-reveal="up">
+    <span class="section-label">Get In Touch</span>
+    <h2 class="section-title">Book Your <em>Session</em></h2>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info" data-reveal="left">
+      <h3>Let's Create Magic Together</h3>
+      <p>Fill in the form and we'll reply within a few hours, or reach us directly on WhatsApp for the fastest response.</p>
+      <div class="contact-items">
+        <a class="contact-item" href="https://wa.me/2349033660736" target="_blank" rel="noopener">
+          <div class="contact-item-icon"><svg class="icon"><use href="#i-chat"/></svg></div>
+          <div><div class="label">WhatsApp</div><div class="value">+234 903 366 0736</div></div>
+        </a>
+        <a class="contact-item" href="mailto:delightbeautyempire4@gmail.com">
+          <div class="contact-item-icon"><svg class="icon"><use href="#i-mail"/></svg></div>
+          <div><div class="label">Email</div><div class="value">delightbeautyempire4@gmail.com</div></div>
+        </a>
+        <a class="contact-item" href="https://www.instagram.com/delightbeautyempire" target="_blank" rel="noopener">
+          <div class="contact-item-icon"><svg class="icon"><use href="#i-camera"/></svg></div>
+          <div><div class="label">Instagram</div><div class="value">@delightbeautyempire</div></div>
+        </a>
+        <div class="contact-item">
+          <div class="contact-item-icon"><svg class="icon"><use href="#i-pin"/></svg></div>
+          <div><div class="label">Home Service</div><div class="value">Available — mention it in your message</div></div>
         </div>
       </div>
-      <div class="testimonial-card" data-aos="fade-up" data-aos-delay="80">
-        <div class="testimonial-quote">"</div>
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">Best nail art I've ever had! She took her time, listened to exactly what I wanted and delivered something even more beautiful. Will always come back.</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar av-2">FN</div>
-          <div>
-            <div class="testimonial-name">Fatima Nwosu</div>
-            <div class="testimonial-role">Regular Client</div>
-          </div>
+    </div>
+
+    <div class="contact-form-card" data-reveal="right">
+      <form id="booking-form" novalidate>
+        <div class="form-row-2">
+          <div class="field"><label for="f-name">Your Name *</label><input type="text" id="f-name" name="name" placeholder="Full name" required /></div>
+          <div class="field"><label for="f-phone">Phone Number *</label><input type="tel" id="f-phone" name="phone" placeholder="+234..." required /></div>
         </div>
-      </div>
-      <div class="testimonial-card" data-aos="fade-up" data-aos-delay="160">
-        <div class="testimonial-quote">"</div>
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">My lash extensions lasted weeks and looked so natural. The service was warm, professional, and the results were breathtaking. 100% recommended!</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar av-3">CB</div>
-          <div>
-            <div class="testimonial-name">Chisom Bello</div>
-            <div class="testimonial-role">Client — Abuja</div>
-          </div>
+        <div class="field"><label for="f-email">Email Address *</label><input type="email" id="f-email" name="email" placeholder="your@email.com" required /></div>
+        <div class="field">
+          <label for="f-service">Service Interested In *</label>
+          <select id="f-service" name="service" required>
+            <option value="">— Choose a service —</option>
+            <option>Bridal Makeup</option>
+            <option>Glam Makeup</option>
+            <option>Hair Styling</option>
+            <option>Lash Extensions</option>
+            <option>Nail Art</option>
+            <option>Skincare Facial</option>
+            <option>Multiple Services</option>
+            <option>Not Sure Yet</option>
+          </select>
         </div>
+        <div class="field"><label for="f-date">Preferred Date</label><input type="date" id="f-date" name="date" /></div>
+        <div class="field"><label for="f-message">Tell Us About Your Needs</label><textarea id="f-message" name="message" placeholder="Event type, location, any special requirements..."></textarea></div>
+        <button type="submit" class="btn btn-primary" style="width:100%;" id="submit-btn">
+          <span class="submit-spinner"></span><span class="submit-label">Send Booking Request</span>
+        </button>
+        <div id="form-status"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo"><svg class="icon"><use href="#i-crown"/></svg><span>Delight Beauty Empire</span></div>
+      <p class="footer-tag">Where beauty meets elegance &amp; grace. Premium bridal, hair, skincare, lash and nail services.</p>
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/delightbeautyempire" target="_blank" rel="noopener" class="footer-social" aria-label="Instagram"><svg class="icon"><use href="#i-camera"/></svg></a>
+        <a href="https://wa.me/2349033660736" target="_blank" rel="noopener" class="footer-social" aria-label="WhatsApp"><svg class="icon"><use href="#i-chat"/></svg></a>
+        <a href="mailto:delightbeautyempire4@gmail.com" class="footer-social" aria-label="Email"><svg class="icon"><use href="#i-mail"/></svg></a>
       </div>
     </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" aria-label="Contact and booking">
-    <div class="section-header" data-aos="fade-up">
-      <span class="section-label">Get in Touch</span>
-      <h2 class="section-title">Book Your <em>Session</em></h2>
-      <div class="section-divider"></div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul><li><a href="#hero">Home</a></li><li><a href="#about">About</a></li><li><a href="#services">Services</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#testimonials">Reviews</a></li></ul>
     </div>
-    <div class="contact-grid">
-      <div class="contact-info" data-aos="fade-right">
-        <h3>Let's Create Magic Together</h3>
-        <p>Ready for your transformation? Fill in the form and we'll get back to you within a few hours. You can also reach us directly on WhatsApp for faster response.</p>
-        <div class="contact-items">
-          <div class="contact-item">
-            <div class="contact-item-icon">💬</div>
-            <div class="contact-item-text">
-              <div class="label">WhatsApp</div>
-              <div class="value"><a href="https://wa.me/2349033660736" target="_blank" rel="noopener">+234 903 366 0736</a></div>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-item-icon">📧</div>
-            <div class="contact-item-text">
-              <div class="label">Email</div>
-              <div class="value"><a href="mailto:delightbeautyempire4@gmail.com">delightbeautyempire4@gmail.com</a></div>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-item-icon">📸</div>
-            <div class="contact-item-text">
-              <div class="label">Instagram</div>
-              <div class="value"><a href="https://www.instagram.com/delightbeautyempire" target="_blank" rel="noopener">@delightbeautyempire</a></div>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-item-icon">🏠</div>
-            <div class="contact-item-text">
-              <div class="label">Home Service</div>
-              <div class="value">Available — mention in your message</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="contact-form-card" data-aos="fade-left" data-aos-delay="100">
-        <form id="booking-form" novalidate>
-          <div class="form-row-2">
-            <div class="form-group">
-              <label for="f-name">Your Name *</label>
-              <input type="text" id="f-name" name="name" placeholder="Full name" required />
-            </div>
-            <div class="form-group">
-              <label for="f-phone">Phone Number *</label>
-              <input type="tel" id="f-phone" name="phone" placeholder="+234..." required />
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="f-email">Email Address *</label>
-            <input type="email" id="f-email" name="email" placeholder="your@email.com" required />
-          </div>
-          <div class="form-group">
-            <label for="f-service">Service Interested In *</label>
-            <select id="f-service" name="service" required>
-              <option value="">— Choose a service —</option>
-              <option>Bridal Makeup</option>
-              <option>Glam Makeup</option>
-              <option>Hair Styling</option>
-              <option>Lash Extensions</option>
-              <option>Nail Art</option>
-              <option>Skincare Facial</option>
-              <option>Multiple Services</option>
-              <option>Not Sure Yet</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="f-date">Preferred Date</label>
-            <input type="date" id="f-date" name="date" />
-          </div>
-          <div class="form-group">
-            <label for="f-message">Tell Us About Your Needs</label>
-            <textarea id="f-message" name="message" placeholder="Event type, location, any special requirements..."></textarea>
-          </div>
-          <button type="submit" class="btn btn-rose" style="width:100%;justify-content:center;font-size:0.8rem" id="submit-btn">
-            ✨ Send Booking Request
-          </button>
-          <div id="form-status"></div>
-        </form>
-      </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul><li><a href="#contact" data-service-select="Bridal Makeup">Bridal Makeup</a></li><li><a href="#contact" data-service-select="Hair Styling">Hair Styling</a></li><li><a href="#contact" data-service-select="Lash Extensions">Lash Extensions</a></li><li><a href="#contact" data-service-select="Nail Art">Nail Art</a></li><li><a href="#contact" data-service-select="Skincare Facial">Skincare Facial</a></li></ul>
     </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-logo">Delight Beauty Empire</div>
-    <div class="footer-tagline">Where Beauty Meets Elegance &amp; Grace</div>
-    <ul class="footer-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#gallery">Gallery</a></li>
-      <li><a href="#videos">Videos</a></li>
-      <li><a href="#contact">Book Now</a></li>
-    </ul>
-    <div class="footer-socials">
-      <a href="https://www.instagram.com/delightbeautyempire" target="_blank" rel="noopener" class="footer-social" aria-label="Instagram">📸</a>
-      <a href="https://wa.me/2349033660736" target="_blank" rel="noopener" class="footer-social" aria-label="WhatsApp">💬</a>
-      <a href="mailto:femiolaniyi36@gmail.com" class="footer-social" aria-label="Email">📧</a>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li class="contact-line"><svg class="icon"><use href="#i-chat"/></svg>+234 903 366 0736</li>
+        <li class="contact-line"><svg class="icon"><use href="#i-mail"/></svg>delightbeautyempire4@gmail.com</li>
+        <li class="contact-line"><svg class="icon"><use href="#i-pin"/></svg>Studio &amp; home service available</li>
+      </ul>
     </div>
-    <div class="footer-copy">
-      © 2025 Delight Beauty Empire. All rights reserved. Made with ❤️ for beauty.
-    </div>
-  </footer>
+  </div>
+  <p class="footer-bottom">&#169; 2025 Delight Beauty Empire. All rights reserved. Made with care for beauty.</p>
+</footer>
 
-  <!-- WHATSAPP FLOAT -->
-  <a id="wa-float" href="https://wa.me/2349033660736?text=Hello%20Delight%20Beauty%20Empire!%20I%20saw%20your%20website%20and%20I'd%20like%20to%20book%20a%20session." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-    💬
-    <span class="wa-tooltip">Chat with us now!</span>
-  </a>
+<!-- MOBILE STICKY BAR -->
+<div id="mobile-bar">
+  <a href="https://wa.me/2349033660736" target="_blank" rel="noopener" class="btn btn-wa"><svg class="icon"><use href="#i-chat"/></svg>WhatsApp</a>
+  <a href="tel:+2349033660736" class="btn btn-ghost-dark"><svg class="icon"><use href="#i-phone"/></svg>Call</a>
+  <a href="#contact" class="btn btn-primary"><svg class="icon"><use href="#i-calendar"/></svg>Book</a>
+</div>
 
-  <!-- AOS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<a id="wa-float" href="https://wa.me/2349033660736?text=Hello%20Delight%20Beauty%20Empire!%20I%20saw%20your%20website%20and%20I'd%20like%20to%20book%20a%20session." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg class="icon"><use href="#i-chat"/></svg>
+</a>
 
-  <script>
-    // ── AOS Init
-    AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 60 });
+<script>
+/* ============ NAV ============ */
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 60), {passive:true});
 
-    // ── Navbar scroll effect
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 60);
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobile-nav');
+const mobileNavClose = document.getElementById('mobile-nav-close');
+function openMobileNav(){ mobileNav.classList.add('open'); hamburger.classList.add('open'); hamburger.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
+function closeMobileNav(){ mobileNav.classList.remove('open'); hamburger.classList.remove('open'); hamburger.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
+hamburger.addEventListener('click', () => mobileNav.classList.contains('open') ? closeMobileNav() : openMobileNav());
+mobileNavClose.addEventListener('click', closeMobileNav);
+mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMobileNav));
+
+/* ============ REVEAL ON SCROLL ============ */
+const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const revealEls = document.querySelectorAll('[data-reveal]');
+if (!prefersReduced && 'IntersectionObserver' in window){
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(en => { if(en.isIntersecting){ en.target.classList.add('is-visible'); io.unobserve(en.target); } });
+  }, {threshold:.15, rootMargin:'0px 0px -60px 0px'});
+  revealEls.forEach(el => io.observe(el));
+} else {
+  revealEls.forEach(el => el.classList.add('is-visible'));
+}
+
+/* ============ HERO TYPED ACCENT ============ */
+const words = ['Empire','Elegance','Grace','Glow','Confidence'];
+let wi=0, ci=0, deleting=false;
+const typedEl = document.getElementById('typed-text');
+function typeLoop(){
+  const w = words[wi];
+  typedEl.textContent = deleting ? w.substring(0, ci--) : w.substring(0, ci++);
+  if(!deleting && ci === w.length+1) setTimeout(()=>deleting=true, 1700);
+  if(deleting && ci < 0){ deleting=false; wi=(wi+1)%words.length; ci=0; }
+  setTimeout(typeLoop, prefersReduced ? 0 : (deleting?45:95));
+}
+if(!prefersReduced) setTimeout(typeLoop, 1200);
+
+/* ============ STAT COUNT-UP ============ */
+function animateCount(el){
+  const target = parseFloat(el.dataset.target);
+  const suffix = el.dataset.suffix || '';
+  if(prefersReduced){ el.textContent = target + suffix; return; }
+  const dur = 1300; let start=null;
+  function step(ts){
+    if(!start) start=ts;
+    const p = Math.min((ts-start)/dur, 1);
+    const eased = 1-Math.pow(1-p,3);
+    el.textContent = Math.round(target*eased) + suffix;
+    if(p<1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+const statNums = document.querySelectorAll('.stat-num');
+if('IntersectionObserver' in window){
+  const statIo = new IntersectionObserver((entries)=>{
+    entries.forEach(en=>{ if(en.isIntersecting){ animateCount(en.target); statIo.unobserve(en.target);} });
+  }, {threshold:.6});
+  statNums.forEach(el=>statIo.observe(el));
+}
+
+/* ============ RAIL ARROW NAV ============ */
+function wireRailNav(navId, railId){
+  const nav = document.getElementById(navId);
+  const rail = document.getElementById(railId);
+  if(!nav || !rail) return;
+  nav.querySelectorAll('button').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const card = rail.querySelector(':scope > *');
+      const step = card ? card.getBoundingClientRect().width + 16 : 240;
+      rail.scrollBy({left: step * parseInt(btn.dataset.dir,10), behavior: prefersReduced ? 'auto' : 'smooth'});
     });
+  });
+}
+wireRailNav('gallery-nav','gallery-rail');
+wireRailNav('video-nav','videos-rail');
 
-    // ── Mobile hamburger
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('nav-links');
-    hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
-    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
-
-    // ── Typing effect
-    const words = ['Elegance & Grace', 'Bridal Perfection', 'Flawless Looks', 'Your Best Self', 'Timeless Beauty'];
-    let wi = 0, ci = 0, deleting = false;
-    const el = document.getElementById('typed-text');
-    function type() {
-      const word = words[wi];
-      el.textContent = deleting ? word.substring(0, ci--) : word.substring(0, ci++);
-      if (!deleting && ci === word.length + 1) { setTimeout(() => { deleting = true; }, 1800); }
-      if (deleting && ci < 0) { deleting = false; wi = (wi + 1) % words.length; ci = 0; }
-      setTimeout(type, deleting ? 50 : 90);
-    }
-    setTimeout(type, 1200);
-
-    // ── Named-slot media loader from media.json + GitHub
-    const REPO    = 'Peaceable0909/delight-beauty-empire';
-    const RAW     = `https://raw.githubusercontent.com/${REPO}/main/`;
-    const API     = `https://api.github.com/repos/${REPO}/contents/`;
-
-    async function loadMediaFromGitHub() {
-      // 1. Load media.json slot definitions
-      let media = { videos: [], photos: [] };
-      try {
-        const r = await fetch(RAW + 'media.json?t=' + Date.now());
-        if (r.ok) media = await r.json();
-      } catch(e) {}
-
-      // 2. Get list of files actually uploaded
-      let uploadedVideos = [], uploadedPhotos = [];
-      try {
-        const r = await fetch(API + 'assets/videos');
-        if (r.ok) uploadedVideos = (await r.json()).map(f => f.name.toLowerCase());
-      } catch(e) {}
-      try {
-        const r = await fetch(API + 'assets/images');
-        if (r.ok) uploadedPhotos = (await r.json()).map(f => f.name.toLowerCase());
-      } catch(e) {}
-
-      // 3. Render video slots
-      const vGrid = document.getElementById('videos-grid');
-      if (media.videos.length > 0) {
-        vGrid.innerHTML = '';
-        media.videos.forEach(slot => {
-          const uploaded = uploadedVideos.includes(slot.file.toLowerCase());
-          const card = document.createElement('div');
-          card.className = 'video-card';
-          if (uploaded) {
-            card.innerHTML = `
-              <div class="video-embed" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
-                <video src="${RAW}assets/videos/${slot.file}"
-                  autoplay muted loop playsinline preload="auto"
-                  style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;background:#000;"></video>
-              </div>
-              <div class="video-info">
-                <div class="video-title">${slot.title}</div>
-              </div>`;
-          } else {
-            card.innerHTML = `
-              <div class="video-embed" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
-                <div style="position:absolute;inset:0;background:linear-gradient(135deg,#1A0820,#3B1040);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;">
-                  <span style="font-size:2.2rem;">⏳</span>
-                  <span style="font-size:0.7rem;letter-spacing:1px;color:rgba(255,255,255,0.4);text-transform:uppercase;">Waiting for</span>
-                  <span style="font-size:0.9rem;color:#C9A96E;font-weight:600;">${slot.file}</span>
-                </div>
-              </div>
-              <div class="video-info">
-                <div class="video-title">${slot.title}</div>
-                <div class="video-date" style="color:#C9A96E;">Upload <strong>${slot.file}</strong> to activate</div>
-              </div>`;
-          }
-          vGrid.appendChild(card);
-        });
+/* ============ TESTIMONIAL DOTS ============ */
+const tRail = document.getElementById('t-rail');
+const tDotsWrap = document.getElementById('t-dots');
+const tCards = Array.from(tRail.children);
+tCards.forEach((_, i) => {
+  const dot = document.createElement('button');
+  if(i===0) dot.classList.add('active');
+  dot.addEventListener('click', ()=> tCards[i].scrollIntoView({behavior: prefersReduced?'auto':'smooth', inline:'center', block:'nearest'}));
+  tDotsWrap.appendChild(dot);
+});
+if('IntersectionObserver' in window){
+  const tIo = new IntersectionObserver((entries)=>{
+    entries.forEach(en=>{
+      if(en.isIntersecting){
+        const idx = tCards.indexOf(en.target);
+        tDotsWrap.querySelectorAll('button').forEach((d,i)=>d.classList.toggle('active', i===idx));
       }
+    });
+  }, {threshold:.6, root:tRail});
+  tCards.forEach(c=>tIo.observe(c));
+}
+let tAutoplay;
+function resetTestimonialAutoplay(){
+  clearInterval(tAutoplay);
+  if(prefersReduced) return;
+  tAutoplay = setInterval(()=>{
+    const active = tDotsWrap.querySelector('button.active');
+    const idx = Array.from(tDotsWrap.children).indexOf(active);
+    const next = (idx+1) % tCards.length;
+    tCards[next].scrollIntoView({behavior:'smooth', inline:'center', block:'nearest'});
+  }, 5500);
+}
+tRail.addEventListener('pointerdown', resetTestimonialAutoplay);
+resetTestimonialAutoplay();
 
-      // 4. Render photo slots
-      const pGrid = document.getElementById('gallery-grid');
-      if (media.photos.length > 0) {
-        pGrid.innerHTML = '';
-        media.photos.forEach(slot => {
-          const uploaded = uploadedPhotos.includes(slot.file.toLowerCase());
-          const item = document.createElement('div');
-          item.className = 'gallery-item';
-          if (uploaded) {
-            const src = `${RAW}assets/images/${slot.file}`;
-            item.style.cursor = 'pointer';
-            item.onclick = () => openLightbox(src, slot.title);
-            item.innerHTML = `
-              <img src="${src}" alt="${slot.title}"
-                style="width:100%;height:100%;min-height:200px;object-fit:cover;border-radius:12px;display:block;" />
-              <div class="gallery-overlay"><span class="gallery-overlay-icon">🔍</span></div>`;
-          } else {
-            item.innerHTML = `
-              <div style="min-height:200px;border-radius:12px;background:rgba(255,255,255,0.04);border:1px dashed rgba(201,169,110,0.3);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:20px;">
-                <span style="font-size:1.8rem;opacity:0.35;">📸</span>
-                <span style="font-size:0.65rem;letter-spacing:2px;color:rgba(255,255,255,0.25);text-transform:uppercase;">Waiting for</span>
-                <span style="font-size:0.8rem;color:#C9A96E;font-weight:600;">${slot.file}</span>
-                <span style="font-size:0.7rem;color:rgba(255,255,255,0.2);">${slot.title}</span>
-              </div>`;
-          }
-          pGrid.appendChild(item);
-        });
+/* ============ SERVICE -> CONTACT QUICK SELECT ============ */
+document.querySelectorAll('[data-service-select]').forEach(el=>{
+  el.addEventListener('click', (e)=>{
+    const sel = document.getElementById('f-service');
+    if(sel) sel.value = el.dataset.serviceSelect;
+    setTimeout(()=>document.getElementById('f-name')?.focus({preventScroll:true}), 550);
+  });
+});
+
+/* ============ LIGHTBOX ============ */
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const lightboxCap = document.getElementById('lightbox-cap');
+function openLightbox(src, caption){
+  lightboxImg.src = src; lightboxImg.alt = caption || '';
+  lightboxCap.textContent = caption || '';
+  lightbox.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox(){
+  lightbox.style.display = 'none';
+  lightboxImg.src = '';
+  document.body.style.overflow = '';
+}
+document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', (e)=>{ if(e.target===lightbox) closeLightbox(); });
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeLightbox(); });
+
+/* ============ MEDIA LOADER (GitHub-backed) ============ */
+const REPO = 'Peaceable0909/delight-beauty-empire';
+const RAW  = `https://raw.githubusercontent.com/${REPO}/main/`;
+const API  = `https://api.github.com/repos/${REPO}/contents/`;
+
+function svgUse(id){ return `<svg class="icon"><use href="#${id}"/></svg>`; }
+
+async function loadMediaFromGitHub(){
+  let media = { videos: [], photos: [] };
+  try{
+    const r = await fetch(RAW + 'media.json?t=' + Date.now());
+    if(r.ok) media = await r.json();
+  }catch(e){}
+
+  let uploadedVideos = [], uploadedPhotos = [];
+  try{ const r = await fetch(API + 'assets/videos'); if(r.ok) uploadedVideos = (await r.json()).map(f=>f.name.toLowerCase()); }catch(e){}
+  try{ const r = await fetch(API + 'assets/images'); if(r.ok) uploadedPhotos = (await r.json()).map(f=>f.name.toLowerCase()); }catch(e){}
+
+  /* Optional hero / about override slots */
+  if(media.hero && media.hero.file && uploadedPhotos.includes(media.hero.file.toLowerCase())){
+    const art = document.getElementById('hero-art');
+    art.innerHTML = `<img src="${RAW}assets/images/${media.hero.file}" alt="${media.hero.title || 'Delight Beauty Empire'}"><div class="hero-visual-deco" aria-hidden="true"></div>`;
+  }
+  if(media.about && media.about.file && uploadedPhotos.includes(media.about.file.toLowerCase())){
+    const art = document.getElementById('about-art');
+    art.innerHTML = `<img src="${RAW}assets/images/${media.about.file}" alt="${media.about.title || 'Inside the studio'}">`;
+  }
+
+  /* Gallery rail */
+  const gRail = document.getElementById('gallery-rail');
+  if(media.photos && media.photos.length){
+    gRail.innerHTML = '';
+    media.photos.forEach(slot=>{
+      const uploaded = uploadedPhotos.includes((slot.file||'').toLowerCase());
+      const wrap = document.createElement('div');
+      wrap.className = 'gallery-card';
+      if(uploaded){
+        const src = `${RAW}assets/images/${slot.file}`;
+        wrap.innerHTML = `
+          <div class="gallery-card-inner">
+            <img src="${src}" alt="${slot.title}" loading="lazy">
+            <div class="overlay"><span class="zoom-pill">${svgUse('i-zoom')}</span></div>
+          </div>
+          <p class="gallery-cap">${slot.title}</p>`;
+        wrap.querySelector('.gallery-card-inner').addEventListener('click', ()=>openLightbox(src, slot.title));
+      } else {
+        wrap.innerHTML = `
+          <div class="gallery-card-inner">
+            <div class="gallery-waiting">
+              ${svgUse('i-camera')}
+              <span class="label">Awaiting upload</span>
+              <span class="file">${slot.file}</span>
+            </div>
+          </div>
+          <p class="gallery-cap">${slot.title}</p>`;
       }
-    }
-    loadMediaFromGitHub();
+      gRail.appendChild(wrap);
+    });
+  }
 
-    // ── Lightbox
-    function openLightbox(src, name) {
-      document.getElementById('lightbox-img').src = src;
-      document.getElementById('lightbox').style.display = 'flex';
-      document.body.style.overflow = 'hidden';
-    }
-    function closeLightbox() {
-      document.getElementById('lightbox').style.display = 'none';
-      document.getElementById('lightbox-img').src = '';
-      document.body.style.overflow = '';
-    }
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+  /* Instagram strip — mirrors first 6 gallery slots */
+  const igRail = document.getElementById('ig-rail');
+  if(media.photos && media.photos.length){
+    igRail.innerHTML = '';
+    media.photos.slice(0,6).forEach(slot=>{
+      const uploaded = uploadedPhotos.includes((slot.file||'').toLowerCase());
+      const t = document.createElement('div');
+      t.className = 'ig-thumb';
+      t.innerHTML = uploaded
+        ? `<img src="${RAW}assets/images/${slot.file}" alt="${slot.title}" loading="lazy">`
+        : `<div class="ph">${svgUse('i-camera')}</div>`;
+      igRail.appendChild(t);
+    });
+  }
 
-    // ── YouTube video adder
-    function addYouTubeVideo() {
-      const urlInput = document.getElementById('yt-url-input');
-      const url = urlInput.value.trim();
-      if (!url) { alert('Please paste a YouTube link.'); return; }
-      const match = url.match(/(?:v=|youtu\.be\/|embed\/)([a-zA-Z0-9_-]{11})/);
-      if (!match) { alert('Could not find a valid YouTube video ID in that link.'); return; }
-      const videoId = match[1];
-      const grid = document.getElementById('videos-grid');
+  /* Videos rail */
+  const vRail = document.getElementById('videos-rail');
+  if(media.videos && media.videos.length){
+    vRail.innerHTML = '';
+    media.videos.forEach(slot=>{
+      const uploaded = uploadedVideos.includes((slot.file||'').toLowerCase());
       const card = document.createElement('div');
       card.className = 'video-card';
-      card.innerHTML = `
-        <div class="video-embed">
-          <iframe src="https://www.youtube.com/embed/${videoId}" allowfullscreen loading="lazy"></iframe>
-        </div>
-        <div class="video-info">
-          <div class="video-title">Delight Beauty Video</div>
-          <div class="video-date">Added ${new Date().toLocaleDateString('en-GB',{month:'long',year:'numeric'})}</div>
-        </div>`;
-      grid.appendChild(card);
-      urlInput.value = '';
-    }
-
-    // ── Contact form → Google Apps Script
-    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwVKukrkyYBAG-SJLv5-Cf1G-DqT5c6JOhyw2Sqd9QBr9Zf9gdu4Y32RDOEfQjuo9pC/exec';
-
-    document.getElementById('booking-form').addEventListener('submit', async function(e) {
-      e.preventDefault();
-      const btn = document.getElementById('submit-btn');
-      const status = document.getElementById('form-status');
-
-      const data = {
-        name: document.getElementById('f-name').value,
-        phone: document.getElementById('f-phone').value,
-        email: document.getElementById('f-email').value,
-        service: document.getElementById('f-service').value,
-        date: document.getElementById('f-date').value,
-        message: document.getElementById('f-message').value
-      };
-
-      if (!data.name || !data.phone || !data.email || !data.service) {
-        status.textContent = '⚠️ Please fill in all required fields.';
-        status.className = 'error';
-        return;
+      if(uploaded){
+        card.innerHTML = `
+          <div class="video-frame">
+            <video src="${RAW}assets/videos/${slot.file}" autoplay muted loop playsinline preload="metadata"></video>
+            <div class="play-pill">${svgUse('i-play')}</div>
+          </div>
+          <div class="video-title">${slot.title}</div>`;
+      } else {
+        card.innerHTML = `
+          <div class="video-frame">
+            <div class="video-waiting">
+              ${svgUse('i-film')}
+              <span class="label">Awaiting upload</span>
+              <span class="file">${slot.file}</span>
+            </div>
+          </div>
+          <div class="video-title">${slot.title}</div>`;
       }
-
-      btn.textContent = 'Sending...';
-      btn.disabled = true;
-      status.className = '';
-      status.style.display = 'none';
-
-      try {
-        if (APPS_SCRIPT_URL === 'YOUR_APPS_SCRIPT_URL_HERE') {
-          // Demo mode — open WhatsApp instead
-          const msg = `Hello Delight Beauty Empire! 💄\n\nName: ${data.name}\nPhone: ${data.phone}\nEmail: ${data.email}\nService: ${data.service}\nDate: ${data.date || 'Flexible'}\nMessage: ${data.message || 'N/A'}`;
-          window.open('https://wa.me/2349033660736?text=' + encodeURIComponent(msg), '_blank');
-          status.textContent = '✅ Opening WhatsApp with your booking details!';
-          status.className = 'success';
-          this.reset();
-        } else {
-          const res = await fetch(APPS_SCRIPT_URL, {
-            method: 'POST',
-            body: JSON.stringify(data)
-          });
-          const json = await res.json();
-          if (json.success) {
-            status.textContent = '✅ Booking request sent! We\'ll reply within a few hours. ✨';
-            status.className = 'success';
-            this.reset();
-          } else throw new Error(json.error || 'Unknown error');
-        }
-      } catch (err) {
-        status.textContent = '❌ Something went wrong. Please WhatsApp us directly.';
-        status.className = 'error';
-        console.error(err);
-      } finally {
-        btn.textContent = '✨ Send Booking Request';
-        btn.disabled = false;
-      }
+      vRail.appendChild(card);
     });
-  </script>
+  }
+}
+loadMediaFromGitHub();
+
+/* ============ BOOKING FORM -> Google Apps Script ============ */
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwVKukrkyYBAG-SJLv5-Cf1G-DqT5c6JOhyw2Sqd9QBr9Zf9gdu4Y32RDOEfQjuo9pC/exec';
+
+document.getElementById('booking-form').addEventListener('submit', async function(e){
+  e.preventDefault();
+  const btn = document.getElementById('submit-btn');
+  const label = btn.querySelector('.submit-label');
+  const status = document.getElementById('form-status');
+
+  const data = {
+    name: document.getElementById('f-name').value,
+    phone: document.getElementById('f-phone').value,
+    email: document.getElementById('f-email').value,
+    service: document.getElementById('f-service').value,
+    date: document.getElementById('f-date').value,
+    message: document.getElementById('f-message').value
+  };
+
+  if(!data.name || !data.phone || !data.email || !data.service){
+    status.textContent = 'Please fill in all required fields.';
+    status.className = 'error';
+    return;
+  }
+
+  btn.classList.add('submitting');
+  btn.disabled = true;
+  label.textContent = 'Sending…';
+  status.className = '';
+  status.style.display = 'none';
+
+  try{
+    const res = await fetch(APPS_SCRIPT_URL, { method:'POST', body: JSON.stringify(data) });
+    const json = await res.json();
+    if(json.success){
+      status.textContent = "Booking request sent! We'll reply within a few hours.";
+      status.className = 'success';
+      this.reset();
+    } else throw new Error(json.error || 'Unknown error');
+  } catch(err){
+    status.textContent = 'Something went wrong. Please WhatsApp us directly.';
+    status.className = 'error';
+    console.error(err);
+  } finally {
+    btn.classList.remove('submitting');
+    btn.disabled = false;
+    label.textContent = 'Send Booking Request';
+  }
+});
+</script>
 </body>
 </html>
